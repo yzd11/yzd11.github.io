@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>MySQL5.7中check检查失效问题</title>
+      <link href="/2023/06/07/MySQL%E4%B8%ADcheck%E6%A3%80%E6%9F%A5%E5%A4%B1%E6%95%88%E9%97%AE%E9%A2%98/"/>
+      <url>/2023/06/07/MySQL%E4%B8%ADcheck%E6%A3%80%E6%9F%A5%E5%A4%B1%E6%95%88%E9%97%AE%E9%A2%98/</url>
+      
+        <content type="html"><![CDATA[<h2 id="问题描述">问题描述</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CREATE TABLE Student1(</span><br><span class="line">Sno VARCHAR(20) PRIMARY KEY,</span><br><span class="line">Sname VARCHAR(20),</span><br><span class="line">Ssex CHAR(2) CHECK(Ssex in(&#x27;男&#x27;,&#x27;女&#x27;)),</span><br><span class="line">Sage INT CHECK(Sage &gt; 16),</span><br><span class="line">Sdept VARCHAR(20) </span><br><span class="line">);</span><br></pre></td></tr></table></figure><p>这是一段MySQL语句，其中有两个check约束，但是在进行插入数据时发现该约束失效</p><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">INSERT INTO <span class="title function_">Student1</span><span class="params">(Sno,Sname,Ssex,Sage,Sdept)</span></span><br><span class="line">VALUES(<span class="string">&#x27;3003&#x27;</span>,<span class="string">&#x27;李寅&#x27;</span>,<span class="string">&#x27;M&#x27;</span>,<span class="number">21</span>,<span class="string">&#x27;SX&#x27;</span>);</span><br><span class="line">-- ERRORS</span><br><span class="line">-- &gt; <span class="number">3819</span> - Check constraint <span class="string">&#x27;student1_chk_1&#x27;</span> is violated.</span><br><span class="line">INSERT INTO <span class="title function_">Student1</span><span class="params">(Sno,Sname,Ssex,Sage,Sdept)</span></span><br><span class="line">VALUES(<span class="string">&#x27;3004&#x27;</span>,<span class="string">&#x27;周强&#x27;</span>,<span class="string">&#x27;女&#x27;</span>,<span class="number">16</span>,<span class="string">&#x27;SX&#x27;</span>);</span><br><span class="line">-- ERRORS</span><br><span class="line">-- &gt; <span class="number">3819</span> - Check constraint <span class="string">&#x27;student1_chk_2&#x27;</span> is violated.</span><br></pre></td></tr></table></figure><p>上面这两条记录是在MySQL8.0运行的记录，但是在MySQL5.7运行时出现了失效问题</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">查询：INSERT INTO Student1(Sno,Sname,Ssex,Sage,Sdept) VALUES(&#x27;3003&#x27;,&#x27;李寅&#x27;,&#x27;M&#x27;,21,&#x27;SX&#x27;)</span><br><span class="line">共 1 行受到影响</span><br><span class="line"></span><br><span class="line">查询：INSERT INTO Student1(Sno,Sname,Ssex,Sage,Sdept) VALUES(&#x27;3004&#x27;,&#x27;周强&#x27;,&#x27;女&#x27;,16,&#x27;SX&#x27;)</span><br><span class="line">共 1 行受到影响</span><br></pre></td></tr></table></figure><h2 id="问题解决">问题解决</h2><p>MySQL中的CHECK约束在理论上是支持的，但是在实际应用中可能会失效。这是因为MySQL不会对CHECK约束进行强制执行，而是将其视为注释，只是将其存储在表中，而不会检查其条件是否满足。</p><p>总的来说，虽然MySQL支持CHECK约束，但是它不会强制执行，因此CHECK约束可能会失效。如果您需要确保数据符合特定条件，建议使用触发器或应用程序逻辑来实现这一点，而不是依赖CHECK约束。</p><p>因此我们有了两种解决方案</p><p><strong>当限制数据量较小时</strong></p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Ssex CHAR(2) CHECK(Ssex in(&#x27;男&#x27;,&#x27;女&#x27;)),</span><br></pre></td></tr></table></figure><p>正如这条语句我们仅仅需要判定两个范围，可以使用枚举进行约束</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CREATE TABLE Student1(</span><br><span class="line">Sno VARCHAR(20) PRIMARY KEY,</span><br><span class="line">Sname VARCHAR(20) UNIQUE,</span><br><span class="line">Ssex ENUM(&#x27;男&#x27;,&#x27;女&#x27;),</span><br><span class="line">Sage INT,</span><br><span class="line">Sdept VARCHAR(20)</span><br><span class="line">);</span><br></pre></td></tr></table></figure><p>效果也是明显的,约束起到了作用</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">查询：INSERT INTO Student1(Sno,Sname,Ssex,Sage,Sdept) VALUES(&#x27;3003&#x27;,&#x27;李寅&#x27;,&#x27;M&#x27;,21,&#x27;SX&#x27;)</span><br><span class="line">错误代码： 1265</span><br><span class="line">Data truncated for column &#x27;Ssex&#x27; at row 1</span><br></pre></td></tr></table></figure><p><strong>当数据量较大时</strong></p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Sage INT CHECK(Sage &gt; 16),</span><br></pre></td></tr></table></figure><p>对于这个约束，我们显然不可能将它枚举出来，因此可以使用触发器进行判定</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">DELIMITER $$</span><br><span class="line">CREATE TRIGGER student_check BEFORE INSERT ON Student1</span><br><span class="line">FOR EACH ROW</span><br><span class="line">BEGIN</span><br><span class="line">    IF NEW.Sage &lt;= 16 THEN</span><br><span class="line">        SIGNAL SQLSTATE &#x27;45000&#x27; SET MESSAGE_TEXT = &#x27;Sage must be greater than 16&#x27;;</span><br><span class="line">    END IF;</span><br><span class="line">END $$</span><br></pre></td></tr></table></figure><p>SIGNAL是MySQL中用于生成警告或错误的语句。它可以用于在触发器或存储过程中生成错误或警告消息。在这种情况下，SIGNAL语句用于生成一个错误消息，指示Sage必须大于16。</p><p>SQLSTATE '45000’是一个标准的SQL状态代码，用于指示用户定义的错误或异常。在这种情况下，'45000’表示一个用户定义的错误。</p><p>SET MESSAGE_TEXT则用于设置错误消息的文本。在这种情况下，消息文本为&quot;Sage must be greater than 16&quot;，将在触发器引发错误时显示给用户。</p><p>因此，当触发器检测到插入或更新行不符合条件时，它将引发一个SQLSTATE为’45000’的错误，并将错误消息设置为&quot;Sage must be greater than 16&quot;。这将防止不符合条件的数据插入表中。</p><p>结果如下</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">查询:INSERT INTO Student1(Sno,Sname,Ssex,Sage,Sdept) VALUES(&#x27;3002&#x27;,&#x27;杨丽&#x27;,&#x27;女&#x27;,16,&#x27;JSJ&#x27;)</span><br><span class="line">错误代码： 1644</span><br><span class="line">Sage must be greater than 16</span><br></pre></td></tr></table></figure><p>关于在如何一个主机中下载两个mysql版本可以参考这篇文章</p><p><a href="http://t.csdn.cn/vRAwz">http://t.csdn.cn/vRAwz</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 问题解决 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> MySQL </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>servlet</title>
       <link href="/2023/06/06/servlet/"/>
       <url>/2023/06/06/servlet/</url>
@@ -105,9 +130,9 @@
       
         <tags>
             
-            <tag> java </tag>
-            
             <tag> lambda </tag>
+            
+            <tag> java </tag>
             
         </tags>
       
