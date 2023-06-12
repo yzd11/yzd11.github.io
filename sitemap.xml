@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://yzd11.github.io/2023/06/12/%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1/</loc>
+    <loc>https://yzd11.github.io/%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1.html</loc>
     
     <lastmod>2023-06-12</lastmod>
     
@@ -11,7 +11,7 @@
   </url>
   
   <url>
-    <loc>https://yzd11.github.io/2023/06/06/servlet/</loc>
+    <loc>https://yzd11.github.io/servlet.html</loc>
     
     <lastmod>2023-06-08</lastmod>
     
@@ -29,7 +29,7 @@
   </url>
   
   <url>
-    <loc>https://yzd11.github.io/readme.html</loc>
+    <loc>https://yzd11.github.io/MySQL%E4%B8%ADcheck%E6%A3%80%E6%9F%A5%E5%A4%B1%E6%95%88%E9%97%AE%E9%A2%98.html</loc>
     
     <lastmod>2023-06-08</lastmod>
     
@@ -38,16 +38,7 @@
   </url>
   
   <url>
-    <loc>https://yzd11.github.io/2023/06/07/MySQL%E4%B8%ADcheck%E6%A3%80%E6%9F%A5%E5%A4%B1%E6%95%88%E9%97%AE%E9%A2%98/</loc>
-    
-    <lastmod>2023-06-08</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://yzd11.github.io/2023/06/06/%E5%A4%9A%E8%A1%8C%E8%BE%93%E5%85%A5%E9%97%AE%E9%A2%98/</loc>
+    <loc>https://yzd11.github.io/%E5%A4%9A%E8%A1%8C%E8%BE%93%E5%85%A5%E9%97%AE%E9%A2%98.html</loc>
     
     <lastmod>2023-06-06</lastmod>
     
@@ -56,7 +47,7 @@
   </url>
   
   <url>
-    <loc>https://yzd11.github.io/2023/06/05/%E5%8D%81%E5%A4%A7%E7%BB%8F%E5%85%B8%E6%8E%92%E5%BA%8F/</loc>
+    <loc>https://yzd11.github.io/%E5%8D%81%E5%A4%A7%E7%BB%8F%E5%85%B8%E6%8E%92%E5%BA%8F.html</loc>
     
     <lastmod>2023-06-06</lastmod>
     
@@ -65,7 +56,7 @@
   </url>
   
   <url>
-    <loc>https://yzd11.github.io/2023/06/05/StreamAPI%E6%96%B0%E7%89%B9%E6%80%A7/</loc>
+    <loc>https://yzd11.github.io/StreamAPI%E6%96%B0%E7%89%B9%E6%80%A7.html</loc>
     
     <lastmod>2023-06-06</lastmod>
     
@@ -74,7 +65,7 @@
   </url>
   
   <url>
-    <loc>https://yzd11.github.io/2023/06/05/lambda%E6%96%B0%E7%89%B9%E6%80%A7/</loc>
+    <loc>https://yzd11.github.io/lambda%E6%96%B0%E7%89%B9%E6%80%A7.html</loc>
     
     <lastmod>2023-06-05</lastmod>
     
@@ -144,14 +135,14 @@
   </url>
   
   <url>
-    <loc>https://yzd11.github.io/tags/java/</loc>
+    <loc>https://yzd11.github.io/tags/lambda/</loc>
     <lastmod>2023-06-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://yzd11.github.io/tags/lambda/</loc>
+    <loc>https://yzd11.github.io/tags/java/</loc>
     <lastmod>2023-06-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
