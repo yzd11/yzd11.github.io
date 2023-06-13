@@ -4,19 +4,6 @@
   
     
     <entry>
-      <title>数据库设计</title>
-      <link href="/%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1.html"/>
-      <url>/%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>MySQL5.7中check检查失效问题</title>
       <link href="/MySQL%E4%B8%ADcheck%E6%A3%80%E6%9F%A5%E5%A4%B1%E6%95%88%E9%97%AE%E9%A2%98.html"/>
       <url>/MySQL%E4%B8%ADcheck%E6%A3%80%E6%9F%A5%E5%A4%B1%E6%95%88%E9%97%AE%E9%A2%98.html</url>
@@ -34,35 +21,6 @@
         <tags>
             
             <tag> MySQL </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>servlet</title>
-      <link href="/servlet.html"/>
-      <url>/servlet.html</url>
-      
-        <content type="html"><![CDATA[<h2 id="编码设置">编码设置</h2><p><strong>tomcat8之前的设置方式</strong></p><p>get方法</p><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">fname</span> <span class="operator">=</span> req.getParameter(<span class="string">&quot;fnmae&quot;</span>);</span><br><span class="line"><span class="comment">//1.将字符串打乱成字节数组</span></span><br><span class="line"><span class="type">byte</span>[] bytes = fname.getBytes(<span class="string">&quot;ISO-8859-1&quot;</span>);</span><br><span class="line"><span class="comment">//2.将字节数组按照指定的编码重新组装成字符串</span></span><br><span class="line">fname = <span class="keyword">new</span> <span class="title class_">String</span>(bytes, <span class="string">&quot;UTF-8&quot;</span>);</span><br></pre></td></tr></table></figure><p>post方法</p><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//在post方法下需要使用setCharacterEncoding方法设置编码</span></span><br><span class="line">req.setCharacterEncoding(<span class="string">&quot;utf-8&quot;</span>);</span><br></pre></td></tr></table></figure><p><strong>tomcat8之后的设置方式</strong></p><p>get方法不需要设置</p><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//在post方法下仍需要使用setCharacterEncoding方法设置编码    </span></span><br><span class="line">req.setCharacterEncoding(<span class="string">&quot;utf-8&quot;</span>);</span><br></pre></td></tr></table></figure><p>代码需要设置在所有请求命令前面</p><h2 id="servlet继承关系">servlet继承关系</h2><ol><li><p>继承关系</p><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">javax.servlet.Servlet接口</span><br><span class="line">        javax.servlet.GenericServlet抽象类</span><br><span class="line">            javax.servlet.http.HttpServlet抽象子类</span><br></pre></td></tr></table></figure></li><li><p>相关方法（重点关注服务方法）</p><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">javax.servlet.Servlet接口</span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">init</span><span class="params">(config)</span> - 初始化方法</span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">service</span><span class="params">(request,response)</span> - 服务方法</span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">destory</span><span class="params">()</span> - 销毁方法</span><br><span class="line">javax.servlet.GenericServlet抽象类</span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">service</span><span class="params">(request,response)</span> - 仍是抽象方法</span><br><span class="line">javax.servlet.http.HttpServlet 抽象子类</span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">service</span><span class="params">(request,response)</span> - 不是抽象方法</span><br><span class="line">    <span class="number">1.</span><span class="type">String</span> <span class="variable">method</span> <span class="operator">=</span> req.getMethod();获取请求的方式</span><br><span class="line">    <span class="number">2.</span>各种<span class="keyword">if</span>判断，根据请求不同，决定调用不同的<span class="keyword">do</span>方法</span><br></pre></td></tr></table></figure></li><li><p>小结</p><p>1.继承关系:<br>HttpServlet -&gt; GenericServlet -&gt; Servlet<br>2.Servlet中的核心方法:<br>init(), service(), destroy()<br>3.服务方法:<br>当有请求时，service方法会自动响应（实质是由tomcat容器调用）<br>在HttpServlet中会进行判断请求方法，然后再调用请求的方法<br>在HttpServlet中这些方法默认都是Http405的实现风格，需要我们自己实现子类，否则会出现405错误<br>4.因此，我们在建立Servlet时会考虑请求方法，然后重写该方法</p></li></ol><h2 id="servlet生命周期">servlet生命周期</h2><ol><li><p>生命周期:从出生到死亡的过程就是生命周期，对应Servlet中的三个方法:init(),service(),destroy()</p></li><li><p>默认情况下:<br>从第一次接受请求开始，这个servlet对进行实例化（调用构造方法），初始化（调用init()方法），然后服务(调用service()方法)<br>从第二次请求开始，每一次都是服务<br>当容器关闭时，其中的所有的Servlet实例都会被销毁，调用销毁方法</p></li><li><p>通过实例发现<br>Servlet实例只会创建一次，所有的请求都是这个实例去响应的</p></li></ol><p>默认情况下，第一次请求时，tomcat才会进行实例化，初始化然后进行服务，这样可以提高系统的启动速度，但是第一次请求时间较长</p><p>因此，如果需要提高系统的启动速度，可以选择默认，如果需要提高响应速度，我们应该设置Server的初始化时机</p><ol start="4"><li><p>Servlet的初始化时机<br>–可以通过在web.xml文件中设置<load-on-startup>来设置Servlet启动的先后顺序，数字越小启动越靠前，启动越靠前，最小值为0</p></li><li><p>Servlet在容器中是单例的，是线程不安全的</p><p>单例：所有的请求都是同一个实例进行响应</p><p>线程不安全：一个线程需要根据这个实例的莫各成员变量去进行逻辑判断，但是在中间某个时机，另一个线程改变这个变量，导致另一个线程的执行路径发生了变化</p><p>因此，我们已经知道了servlet是线程不安全的，因此尽量不要在servlet中定义成员变量，如果不得不定义，不要对成员变量的值进行修改同时不要根据成员变量的值进行判断</p></li></ol><h2 id="Http协议">Http协议</h2><ol><li><p>Http被称为超文本传输协议</p></li><li><p>Http是无状态的（是指协议对于交互性场景没有记忆能力）</p></li><li><p>Http请求相应包含两个部分 : 请求和响应</p><p>请求<br>包含三个部分:1.请求行  ；2.请求消息头 ； 3.请求主体</p><ol><li><p>请求行包含三个信息:1.请求方式 ；2.请求的URL ；3.请求的协议(一般是HTTP 1.1)</p></li><li><p>请求消息头包含了许多客户端需要告诉服务器的信息，比如 : 浏览器的版本，型号，接收内容的类型</p></li><li><p>请求体（三种情况）</p><p>get方式，没有请求体，但是有一个queryString</p><p>post方式，有请求体，from data</p><p>json格式，有请求体，request payload</p></li></ol><p>响应</p><p>包含三个部分：1.响应行 ；2.响应消息头 ；3.响应主体</p><ol><li>响应行包含三个信息：1.协议 ；2.响应状态码（200） ；3.响应状态(ok)</li><li>响应头：包含了服务器的信息，服务器发送给浏览器的信息（内容的媒体类型，内容编码，内容长度等）</li><li>响应体：响应的具体内容</li></ol></li></ol><h2 id="会话">会话</h2><ol><li><p>Http是无状态的</p><p>Http无状态：服务器无法判断前后两次请求是同一个客服端发送，还是不同客户端发送</p><p>无状态的现实问题：当第一次请求是添加商品到购物车中，第二次请求结账时服务器无法判断是否是前一个用户的请求</p><p>使用会话跟踪技术解决无状态问题</p></li><li><p>会话跟踪技术</p><p>客户端第一次发送请求给服务器，服务器获取session，获取不到，创建新的session,然后响应给客户端</p><p>下一次客户端发送请求时，会把sessionID发送给服务器，服务器就可以获取到请求并进行判断</p><p>常用的API：</p><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">request.getSession() -&gt; 获取当前的会话，没有则进行创建新的会话</span><br><span class="line">request.getSession(<span class="literal">true</span>) -&gt; 效果和不带参数相同</span><br><span class="line">request.getSession(<span class="literal">false</span>) -&gt; 获取当前会话，没有则返回<span class="literal">null</span>,不会创建新的session</span><br><span class="line">session.getId -&gt; 获取sessionID</span><br><span class="line">session.isNeW -&gt; 判断当前session是否是新的</span><br><span class="line">session.getMaxInactiveInterval(); -&gt; session的非激活间隔时长，默认<span class="number">1800</span>秒</span><br><span class="line">session.invalidate(); -&gt; 会话强制失效</span><br></pre></td></tr></table></figure></li><li><p>session保存作用域</p><p>session保存作用域是和具体的某一个session对应的</p><p>常用的API：</p><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> session.setAttribute(k,v)</span><br><span class="line">Object session.getAttribute(k)</span><br><span class="line"><span class="keyword">void</span> <span class="title function_">removeAttribute</span><span class="params">(k)</span></span><br></pre></td></tr></table></figure></li></ol><h2 id="服务器内部转发与客户端重定向">服务器内部转发与客户端重定向</h2><ol><li><p>服务器内部转发：</p><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">request.getRequestDispatcher(<span class="string">&quot;&quot;</span>).forward(request,response);</span><br></pre></td></tr></table></figure><p>一次请求响应的过程，对于客户端而言，内部经过多少次转发，客户端不知道，地址栏没有变化</p></li><li><p>客户端重定向：</p><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">response.sendRedirect(<span class="string">&quot;&quot;</span>);</span><br></pre></td></tr></table></figure><p>两次请求相应的过程，客户端知道url发生变化，地址栏发生变化</p></li></ol><h2 id="Thymeleaf">Thymeleaf</h2><p><img src="https://raw.githubusercontent.com/yzd11/yzd.github.io/master/img/202306081842110.png" alt="image-20230608170722902"></p><p>200 ：正常响应</p><p>404 ：找不到资源</p><p>405 ：请求方法不支持</p><p>500 ：服务器内部错误</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 学习笔记 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> java </tag>
-            
-            <tag> javaWeb </tag>
-            
-            <tag> servlet </tag>
             
         </tags>
       
@@ -143,9 +101,9 @@
       
         <tags>
             
-            <tag> lambda </tag>
-            
             <tag> java </tag>
+            
+            <tag> lambda </tag>
             
         </tags>
       
