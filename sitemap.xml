@@ -103,7 +103,7 @@
 
   <url>
     <loc>https://yzd.world/</loc>
-    <lastmod>2023-06-13</lastmod>
+    <lastmod>2023-06-14</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -111,35 +111,35 @@
   
   <url>
     <loc>https://yzd.world/tags/java/</loc>
-    <lastmod>2023-06-13</lastmod>
+    <lastmod>2023-06-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://yzd.world/tags/MySQL/</loc>
-    <lastmod>2023-06-13</lastmod>
+    <lastmod>2023-06-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://yzd.world/tags/lambda/</loc>
-    <lastmod>2023-06-13</lastmod>
+    <lastmod>2023-06-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://yzd.world/tags/C/</loc>
-    <lastmod>2023-06-13</lastmod>
+    <lastmod>2023-06-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://yzd.world/tags/%E7%AE%97%E6%B3%95/</loc>
-    <lastmod>2023-06-13</lastmod>
+    <lastmod>2023-06-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -148,14 +148,14 @@
   
   <url>
     <loc>https://yzd.world/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
-    <lastmod>2023-06-13</lastmod>
+    <lastmod>2023-06-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://yzd.world/categories/%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/</loc>
-    <lastmod>2023-06-13</lastmod>
+    <lastmod>2023-06-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
