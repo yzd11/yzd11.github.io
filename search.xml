@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>idea中部署javaweb问题</title>
+      <link href="/posts/e51aeadb.html"/>
+      <url>/posts/e51aeadb.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="配置条件">配置条件</h2><p>确保tomcat可以正确运行，在本机的8080端口可以正确访问</p><h2 id="配置步骤">配置步骤</h2><h3 id="创建Module">创建Module</h3><p>选择创建一个module</p><p><img src="../../../../AppData/Roaming/Typora/typora-user-images/image-20230615202946815.png" alt="image-20230615202946815"></p><p>选择java即可，如果熟悉maven可以使用</p><p><img src="../../../../AppData/Roaming/Typora/typora-user-images/image-20230615203013273.png" alt="image-20230615203013273"></p><h3 id="添加web项目">添加web项目</h3><p>选择project Structure进行设置</p><p><img src="../../../../AppData/Roaming/Typora/typora-user-images/image-20230615203254673.png" alt="image-20230615203254673"></p><p>点击其中的Facets添加web项目，选择自己需要添加web项目的Module</p><p><img src="../../../../AppData/Roaming/Typora/typora-user-images/image-20230615203340877.png" alt="image-20230615203340877"></p><p>会出现需要创建一个artifacts的提示，如果没有也可以在后面创建</p><p><img src="../../../../AppData/Roaming/Typora/typora-user-images/image-20230615203540360.png" alt="image-20230615203540360"></p><p>如果在上一步没有选择创建一个artifacts，可以在这里进行创建，Exploded是解压缩，Archive可以理解为压缩包</p><p><img src="../../../../AppData/Roaming/Typora/typora-user-images/image-20230615203837547.png" alt="image-20230615203837547"></p><p>添加成功后会出现一个web项目，在该目录下创建一个index.html文件便于后面测试是否部署成功</p><p><img src="../../../../AppData/Roaming/Typora/typora-user-images/image-20230615204143439.png" alt="image-20230615204143439"></p><h2 id="部署Tomcat">部署Tomcat</h2><p>点击编辑配置</p><p><img src="../../../../AppData/Roaming/Typora/typora-user-images/image-20230615204315387.png" alt="image-20230615204315387"></p><p>添加一个tomcat,我之前有过部署可能所以会有两个tomcat</p><p><img src="../../../../AppData/Roaming/Typora/typora-user-images/image-20230615204415709.png" alt="image-20230615204415709"></p><p>添加Deployment中的artifacts,选择前面的artifacts即可，下面的路径可以自己填，为了方便可以仅保留/demo01</p><p><img src="../../../../AppData/Roaming/Typora/typora-user-images/image-20230615205125975.png" alt="image-20230615205125975"></p><p>如果保留到/demo01,下面的url可以按照这样写，如果仅保留一个 / ，可以填写成为<a href="http://localhost:8080/index.html%EF%BC%8C%E4%B8%8D%E8%A6%81%E5%B0%86">http://localhost:8080/index.html，不要将</a> / 写多了。下面两个配置按照如图所示即可，便于资源更新，其余不做改动</p><p><img src="../../../../AppData/Roaming/Typora/typora-user-images/image-20230615205707830.png" alt="image-20230615205707830"></p><p>进行测试</p><p><img src="../../../../AppData/Roaming/Typora/typora-user-images/image-20230615210138292.png" alt="image-20230615210138292"></p><p>如果在浏览器中出现了下面图片即为成功部署</p><p><img src="../../../../AppData/Roaming/Typora/typora-user-images/image-20230615210328563.png" alt="image-20230615210328563"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 问题解决 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> javaweb </tag>
+            
+            <tag> idea </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Servlet</title>
       <link href="/posts/1401e6d1.html"/>
       <url>/posts/1401e6d1.html</url>
@@ -20,7 +47,7 @@
       
         <tags>
             
-            <tag> javaWeb </tag>
+            <tag> javaweb </tag>
             
             <tag> java </tag>
             
@@ -49,9 +76,9 @@
       
         <tags>
             
-            <tag> servlet </tag>
-            
             <tag> javaweb </tag>
+            
+            <tag> servlet </tag>
             
             <tag> session </tag>
             
