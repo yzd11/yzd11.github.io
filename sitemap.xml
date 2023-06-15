@@ -56,7 +56,7 @@
   </url>
   
   <url>
-    <loc>https://yzd.world/posts/1b71b390.html</loc>
+    <loc>https://yzd.world/posts/accbf5d6.html</loc>
     
     <lastmod>2023-06-14</lastmod>
     
@@ -65,7 +65,7 @@
   </url>
   
   <url>
-    <loc>https://yzd.world/posts/accbf5d6.html</loc>
+    <loc>https://yzd.world/posts/1b71b390.html</loc>
     
     <lastmod>2023-06-14</lastmod>
     
@@ -151,13 +151,6 @@
   </url>
   
   <url>
-    <loc>https://yzd.world/tags/idea/</loc>
-    <lastmod>2023-06-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://yzd.world/tags/java/</loc>
     <lastmod>2023-06-15</lastmod>
     <changefreq>weekly</changefreq>
@@ -165,7 +158,14 @@
   </url>
   
   <url>
-    <loc>https://yzd.world/tags/lambda/</loc>
+    <loc>https://yzd.world/tags/servlet/</loc>
+    <lastmod>2023-06-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://yzd.world/tags/idea/</loc>
     <lastmod>2023-06-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -186,7 +186,7 @@
   </url>
   
   <url>
-    <loc>https://yzd.world/tags/servlet/</loc>
+    <loc>https://yzd.world/tags/lambda/</loc>
     <lastmod>2023-06-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
