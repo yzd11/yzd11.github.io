@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="referrer" content="no-referrer"><title>模型选择与评估 - yzd&#039;s Log Book</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="yzd&#039;s Log Book"><meta name="msapplication-TileImage" content="https://s2.loli.net/2024/11/11/wIobSZOAEGchgVv.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="yzd&#039;s Log Book"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="模型选择与评估的技巧"><meta property="og:type" content="blog"><meta property="og:title" content="模型选择与评估"><meta property="og:url" content="https://yzd11.github.io/2024/09/05/%E6%A8%A1%E5%9E%8B%E9%80%89%E6%8B%A9%E4%B8%8E%E8%AF%84%E4%BC%B0/"><meta property="og:site_name" content="yzd&#039;s Log Book"><meta property="og:description" content="模型选择与评估的技巧"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1723807341718-347ba59b-36e7-4a1e-ab7e-b8156d75b2ef.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1723807617835-0fce2e8e-1c33-4bc9-ba28-b700be808f2a.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1723807826400-275630a1-e265-4c96-b6b5-ae4ea61e70f0.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1723815245064-cda73662-b8f4-47fa-bb99-7dd754dac8fc.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1723815831366-4e2ec0a8-37a2-44a7-90d5-90c13907a67a.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1723865380903-77320bf6-9269-439a-a2ab-df9f546b12ca.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1723815986928-b0f011de-0491-41c7-835c-4a0112d1f6d0.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1723816836399-b0a447c9-93ed-4bfc-9c58-31f1c47a4356.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1723817100177-f3d21ecb-c7af-4203-84a1-973e0aa58740.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1723865578461-620b94bc-7c69-44a1-9f43-0b531f451c82.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1723887190890-0f4782fe-8b8a-428e-a70f-0cd10e982228.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1723893902788-af3357ce-c042-4882-a1af-f93b67ef75e6.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1723894137813-d2851223-e127-4c63-a5f0-4d21730cf452.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1723894907701-1a95ddbf-f958-4e39-b77a-cb16db58a9fc.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1723897566852-a55d2e63-d397-4f00-a144-ab2905ab7db2.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1723898059891-3a43357b-9652-4802-b5c2-483f0f2a80a5.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1723983706369-88d3ffe6-9a33-4d0d-97b7-e6687678ef19.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1723983975983-a3d06e41-b115-476d-bc41-d09ee535dd84.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1723985011541-ac7d1d3d-27c6-4f6c-aa6a-c56438728c08.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1723985167977-4a97c766-9bf1-4aea-a853-b4aac2a56a3b.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1723986336058-f6184bdd-a07b-4655-a16d-e12a73b942eb.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1723987473893-56823fc7-061c-4839-b753-78dad9cdf28c.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1723987766728-6a759fe3-a46f-4983-98fc-366371af0672.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1723989146602-98fcf17e-8129-4f99-b6a5-68f922357c5b.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1723989539765-8cf982f2-d767-4278-b603-2f45b659ecbc.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1723990924299-60073db9-1a4e-4d8d-b9ff-3863bb5e987f.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1724054588075-7d3e5c3e-6f25-4659-b2a9-6f7fec4cae13.png"><meta property="article:published_time" content="2024-09-05T12:39:29.000Z"><meta property="article:modified_time" content="2024-11-19T09:32:39.382Z"><meta property="article:author" content="yzd"><meta property="article:tag" content="Machine Learning"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1723807341718-347ba59b-36e7-4a1e-ab7e-b8156d75b2ef.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://yzd11.github.io/2024/09/05/%E6%A8%A1%E5%9E%8B%E9%80%89%E6%8B%A9%E4%B8%8E%E8%AF%84%E4%BC%B0/"},"headline":"模型选择与评估","image":["https://cdn.nlark.com/yuque/0/2024/png/40370285/1723807341718-347ba59b-36e7-4a1e-ab7e-b8156d75b2ef.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1723807617835-0fce2e8e-1c33-4bc9-ba28-b700be808f2a.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1723807826400-275630a1-e265-4c96-b6b5-ae4ea61e70f0.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1723815245064-cda73662-b8f4-47fa-bb99-7dd754dac8fc.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1723815831366-4e2ec0a8-37a2-44a7-90d5-90c13907a67a.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1723865380903-77320bf6-9269-439a-a2ab-df9f546b12ca.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1723815986928-b0f011de-0491-41c7-835c-4a0112d1f6d0.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1723816836399-b0a447c9-93ed-4bfc-9c58-31f1c47a4356.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1723817100177-f3d21ecb-c7af-4203-84a1-973e0aa58740.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1723865578461-620b94bc-7c69-44a1-9f43-0b531f451c82.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1723887190890-0f4782fe-8b8a-428e-a70f-0cd10e982228.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1723893902788-af3357ce-c042-4882-a1af-f93b67ef75e6.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1723894137813-d2851223-e127-4c63-a5f0-4d21730cf452.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1723894907701-1a95ddbf-f958-4e39-b77a-cb16db58a9fc.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1723897566852-a55d2e63-d397-4f00-a144-ab2905ab7db2.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1723898059891-3a43357b-9652-4802-b5c2-483f0f2a80a5.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1723983706369-88d3ffe6-9a33-4d0d-97b7-e6687678ef19.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1723983975983-a3d06e41-b115-476d-bc41-d09ee535dd84.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1723985011541-ac7d1d3d-27c6-4f6c-aa6a-c56438728c08.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1723985167977-4a97c766-9bf1-4aea-a853-b4aac2a56a3b.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1723986336058-f6184bdd-a07b-4655-a16d-e12a73b942eb.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1723987473893-56823fc7-061c-4839-b753-78dad9cdf28c.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1723987766728-6a759fe3-a46f-4983-98fc-366371af0672.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1723989146602-98fcf17e-8129-4f99-b6a5-68f922357c5b.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1723989539765-8cf982f2-d767-4278-b603-2f45b659ecbc.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1723990924299-60073db9-1a4e-4d8d-b9ff-3863bb5e987f.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1724054588075-7d3e5c3e-6f25-4659-b2a9-6f7fec4cae13.png"],"datePublished":"2024-09-05T12:39:29.000Z","dateModified":"2024-11-19T09:32:39.382Z","author":{"@type":"Person","name":"yzd"},"publisher":{"@type":"Organization","name":"yzd's Log Book","logo":{"@type":"ImageObject","url":"https://s2.loli.net/2024/11/11/wIobSZOAEGchgVv.png"}},"description":"模型选择与评估的技巧"}</script><link rel="canonical" href="https://yzd11.github.io/2024/09/05/%E6%A8%A1%E5%9E%8B%E9%80%89%E6%8B%A9%E4%B8%8E%E8%AF%84%E4%BC%B0/"><link rel="icon" href="https://s2.loli.net/2024/11/11/wIobSZOAEGchgVv.png"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link data-pjax rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link data-pjax rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head><body class="is-3-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="https://s2.loli.net/2024/11/11/wIobSZOAEGchgVv.png" alt="yzd&#039;s Log Book" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">YZD&#039;S LOG BOOK</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/yzd11/"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2024-09-05T12:39:29.000Z" title="2024/9/5 20:39:29">2024-09-05</time></span><span class="level-item">Updated&nbsp;<time dateTime="2024-11-19T09:32:39.382Z" title="2024/11/19 17:32:39">2024-11-19</time></span><span class="level-item"><a class="link-muted" href="/categories/blog/">blog</a></span><span class="level-item">21 minutes read (About 3178 words)</span></div></div><h1 class="title is-3 is-size-4-mobile">模型选择与评估</h1><div class="content"><h2 id="gokuz">模型评估</h2>
+
+
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1723807341718-347ba59b-36e7-4a1e-ab7e-b8156d75b2ef.png"></p>
+<p>我们对于一个数据集进行划分，将其中$ 70% $的数据划分为训练集，将剩余$ 20% $的数据划分为测试集。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1723807617835-0fce2e8e-1c33-4bc9-ba28-b700be808f2a.png"></p>
+<p>对于一个线性回归模型，我们得到了这三个公式，其中$ J(\vec{w},b) $是表示代价函数，$ J_{test}(\vec{w},b) $代表测试集的误差，$ J_{train}(\vec{w},b) $代表训练集的误差。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1723807826400-275630a1-e265-4c96-b6b5-ae4ea61e70f0.png"></p>
+<p>我们可以使用$ J_{test}(\vec{w},b) $和$ J_{train}(\vec{w},b) $来衡量该模型在测试集和训练集上的表现，显然对于这个过拟合的曲线，它在训练集的表现很好，但是在测试集上的表现很糟糕。</p>
+<h2 id="VUEmn">交叉验证</h2>
+
+
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1723815245064-cda73662-b8f4-47fa-bb99-7dd754dac8fc.png"></p>
+<p>我们前面讲到将数据集划分为训练集和测试集，训练集用于确定$ w,b $，验证集用于选择模型，确定一个合适的超参数$ d $和判断是否过拟合。但是由于测试集已经多次参与到了数据的拟合中，因此最终得到的泛化误差是过于乐观的，可能小于实际的误差值。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1723815831366-4e2ec0a8-37a2-44a7-90d5-90c13907a67a.png"></p>
+<p>我们引入了一个新的概念-交叉验证集（也称为验证集，开发集），同时对于数据集进行重新划分，我们将其中的$ 60% $作为训练集，将剩下的$ 40% $分别各分一半作为验证集和测试集。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1723865380903-77320bf6-9269-439a-a2ab-df9f546b12ca.png"></p>
+<p><font style="color:rgb(64, 64, 64);background-color:rgb(252, 252, 252);">然后在训练集上训练模型，在验证集上选择模型，最后用测试集上的误差作为泛化误差的估计。我们可以在验证集上反复尝试不同的参数组合，当找到一组满意的参数后，最后在测试集上估计模型的泛化能力。</font></p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1723815986928-b0f011de-0491-41c7-835c-4a0112d1f6d0.png"></p>
+<p>我们通过训练集训练数据，确定$ w,b $，同时使用验证集选择模型，确定超参数层数和隐藏的神经元个数以及是否过拟合，最终我们使用没有用过的测试集得到一个泛化误差。</p>
+<h2 id="MIohY">偏差和方差</h2>
+
+
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1723816836399-b0a447c9-93ed-4bfc-9c58-31f1c47a4356.png"></p>
+<p>对于欠拟合，我们的模型在训练集和验证集上表现很糟糕，属于高偏差的情况。而对于过拟合，我们的模型在训练集上的表现很好，但是在验证集上的表现很糟糕，属于高方差。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1723817100177-f3d21ecb-c7af-4203-84a1-973e0aa58740.png"></p>
+<p>当$ J_{train} $过高，同时$ J_{train}&#x3D;J_{cv} $，那么就属于高偏差（欠拟合），当$ J_{cv}&gt;&gt;J_{train} $时，就属于高方差（过拟合）。当$ J_{train} $过高，同时$ J_{cv}&gt;&gt;J_{train} $，那么就是同时出现了高偏差和高方差，在程序中可能前半段的输入过拟合，后半段欠拟合，这种情况就会导致最终呈现高偏差和高方差。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1723865578461-620b94bc-7c69-44a1-9f43-0b531f451c82.png"></p>
+<p>我们可以看到，正则化参数$ \lambda $的大小也会影响偏差和方差的值，同时与之前的多项式系数的图像成镜像关系。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1723887190890-0f4782fe-8b8a-428e-a70f-0cd10e982228.png"></p>
+<p>我们在对训练的结果进行判断的时候要和基准线的表现相比较，将$ J_{train} $和基准线相比较，来判断是否高偏差，将$ J_{train} $和$ J_{cv} $相比较，判断是否高方差。</p>
+<h2 id="lCymw">学习曲线</h2>
+
+
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1723893902788-af3357ce-c042-4882-a1af-f93b67ef75e6.png"></p>
+<p>对于上图的学习曲线，$ J_{cv} $是从大到小，而$ J_{train} $是从小到大，当仅有一个时是没有误差的，随着训练集样本的增加，我们的曲线的偏离也逐渐增大。同时$ J_{cv} $的值在普遍情况下都是大于$ J_{train} $的值。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1723894137813-d2851223-e127-4c63-a5f0-4d21730cf452.png"></p>
+<p>对于高偏差的情况，即使我们不断增大训练集的容量，但是我们的$ J_{cv} $和$ J_{train} $都无法降低到和人类的表现水平相同，仍远高于这个水平。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1723894907701-1a95ddbf-f958-4e39-b77a-cb16db58a9fc.png"></p>
+<p>对于高方差的情况，随着我们对于训练集容量的提高，可以看到这将有利于我们的$ J_{cv} $和$ J_{train} $达到相接近的水平。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1723897566852-a55d2e63-d397-4f00-a144-ab2905ab7db2.png"></p>
+<p>对于高偏差，我们可以使用增加特征，提高多项式的次数，减少正则化系数$ \lambda $等一系列方法。</p>
+<p>对于高方差，我们可以增大训练集的容量，减少特征，增大正则化系数$ \lambda $等一系列方法。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1723898059891-3a43357b-9652-4802-b5c2-483f0f2a80a5.png"></p>
+<p>如果我们的模型太复杂就会导致高方差，如果太简单就会导致高偏差，为了在高偏差和高方差之间找到一个平衡点，我们可以按照这个顺序来进行调整。我们知道只要训练集的规模不算太大，那么在一个大型的神经网络上总是一个低偏差的状态，因此当我们的$ J_{train} $过大时就要增大神经网络的大小，直到可以在训练集上表现良好。接着如果在验证集上表现糟糕，那么就可以增大训练集的容量，同时回到第一步使得在训练集上表现良好，这样周而复始最终得到一个低偏差和低方差的结果。</p>
+<p>当我们在扩大神经网络的时候只要选择了合适的正则化方法也不会导致方差的增大。</p>
+<h2 id="f3N9o">机器学习开发的流程</h2>
+
+
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1723983706369-88d3ffe6-9a33-4d0d-97b7-e6687678ef19.png"></p>
+<p>首先选择一个合适的模型，包含一些超参数和数据集的选择。接着进行模型的训练，根据训练的结果反向调整参数，通过偏差和方差大小的判断，重新对模型进行调整。</p>
+<h2 id="vRBQZ">误差分析</h2>
+
+
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1723983975983-a3d06e41-b115-476d-bc41-d09ee535dd84.png"></p>
+<p>我们对于验证集的$ 500 $个样例中的$ 100 $个被错误分类的样例进行分析。可以看到其中大部分都是由于医药邮件和窃取信息的邮件出现了错误分类，而对于故意的拼写错误很少，因此我们应该将中重点放在出现错误最多的地方。</p>
+<h2 id="kUT1F">数据增强</h2>
+
+
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1723985011541-ac7d1d3d-27c6-4f6c-aa6a-c56438728c08.png"></p>
+<p>对于图像识别问题，我们可以通过将原本数据集进行扭曲和调整对比度形成新的数据。对于语音识别功能，我们可以添加一些噪音。但是如果添加一些完全随机或者没有意义的噪音对于数据的训练帮助不大。</p>
+<h2 id="lOcaF">迁移学习</h2>
+
+
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1723985167977-4a97c766-9bf1-4aea-a853-b4aac2a56a3b.png"></p>
+<p>对于一些训练数据不够的情况，我们可以使用网上已经训练完成的模型，这被称为<font style="color:#00346B;background-color:#FBDE28;">预训练模型</font>。接着我们可以使用预先训练好的模型的参数作为初识参数，在训练的过程中进行调整，这个过程就被称为<font style="background-color:#FBDE28;">微调</font>。</p>
+<p>对于数据量不足的情况，我们可以选择仅训练输出层，根据自己的训练集对输出层函数进行调整。</p>
+<p>对于数据量足够的情况，我们可以选择从头开始训练全部的参数。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1723986336058-f6184bdd-a07b-4655-a16d-e12a73b942eb.png"></p>
+<p>对于迁移学习的可行性，我们参照这个四层的神经网络可以看到，第一个隐藏层是在提取一些微小的边的特征。第二层是在提取一些角落特征，第三层是在提取一些曲线特征。因此我们可以看到对于图像识别问题，前几层所提取的信息，无论是对于车辆识别还是数字识别来讲，都是类似的，我们可以仅调整最后一层的输出，使得符合我们自己训练的数据集。</p>
+<p>同时需要注意的是，我们的输入的类型都要是相同的，对于图形处理的预处理模型我们不可以拿来进行语言模型的训练。</p>
+<h2 id="MeBRM">机器学习项目的完整流程</h2>
+
+
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1723987473893-56823fc7-061c-4839-b753-78dad9cdf28c.png"></p>
+<p>第一步，我们需要确定我们的项目本身和我们应该做些什么。</p>
+<p>第二步，我们应该收集数据和贴上相应的标签。</p>
+<p>第三步，我们应该对模型进行训练，同时根据训练的结果选择是否要收集更多的数据。</p>
+<p>第四步，我们将项目部署在服务器上，通过使用其中的数据可以优化系统性能，同时当我们的模型无法很好的工作的时候可以选择重新训练一个新的模型来替代原有的模型。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1723987766728-6a759fe3-a46f-4983-98fc-366371af0672.png"></p>
+<p>我们在进行项目的部署的时候，可以将其部署在服务器上，我们的应用程序软件可以通过调用提供的API接口使用这个模型所提供的服务。</p>
+<h2 id="TMq86">倾斜数据集的误差指标</h2>
+
+
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1723989146602-98fcf17e-8129-4f99-b6a5-68f922357c5b.png"></p>
+<p>对于上述这个很倾斜的数据集，由于呈现阳性的概率只有$ 0.5% $，因此一个只会打印$ print(‘’y&#x3D;0’’) $的愚蠢算法，实际上的准确率也会比我们的仅有$ 1% $错误率的算法要高，因此仅仅依靠准确率来对于这种数据集进行评估是不公平的，我们需要引入<font style="background-color:#FBDE28;">精准率</font>和<font style="background-color:#FBDE28;">召回率</font>。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1723989539765-8cf982f2-d767-4278-b603-2f45b659ecbc.png"></p>
+<p>首先绘制一个$ 2\times 2 $的矩阵，我们称之为混淆矩阵。根据这个矩阵，我们可以计算出两个值。</p>
+<p>精准率：$ \frac{TP}{TP+FP} $，<font style="color:rgb(77, 77, 77);">这代表在你预测为真的事件中，有多少预测正确。</font></p>
+<p>召回率：$ \frac {TP}{TP+FN} $<font style="color:rgb(77, 77, 77);">，这代表在所有真事件中，你预测正确的占多少。</font></p>
+<p><font style="color:rgb(77, 77, 77);">高精准率代表预测为阳性的患者很大概率是真的，高召回率代表为一个称阳性的患者可以被检测到。</font></p>
+<p><font style="color:rgb(77, 77, 77);">如此，对于之前仅预测为假的算法，它的精准率和召回率都是为</font>$ 0 $<font style="color:rgb(77, 77, 77);">。</font></p>
+<h2 id="LDFnN"><font style="color:rgb(77, 77, 77);">精准率和召回率</font></h2>
+
+
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1723990924299-60073db9-1a4e-4d8d-b9ff-3863bb5e987f.png"></p>
+<p>对于逻辑回归问题来讲，当我们提高阈值，那么我们的精准度就会上升，但是召回率就会下降，相反，如果降低阈值，那么我们的精准度就会下降，但是召回率就会上升，因此我们需要通过手动的方式选择一个合适的阈值。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1724054588075-7d3e5c3e-6f25-4659-b2a9-6f7fec4cae13.png"></p>
+<p>为了更好的权衡精准率和召回率，我们选择使用一个$ F1 $分数，而不是简单的平均数。</p>
+<p>使用$ F1\mathrm{~score}&#x3D;\frac{1}{\frac{1}{2}{(\frac1P+\frac1R)}}&#x3D;2\frac{PR}{P+R} $，这样得到的结果更加偏向比较小的值，这也被称为调和平均数。</p>
+</div><div class="article-licensing box"><div class="licensing-title"><p>模型选择与评估</p><p><a href="https://yzd11.github.io/2024/09/05/模型选择与评估/">https://yzd11.github.io/2024/09/05/模型选择与评估/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>Author</h6><p>yzd</p></div></div><div class="level-item is-narrow"><div><h6>Posted on</h6><p>2024-09-05</p></div></div><div class="level-item is-narrow"><div><h6>Updated on</h6><p>2024-11-19</p></div></div><div class="level-item is-narrow"><div><h6>Licensed under</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="icons" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="icon fab fa-creative-commons-by"></i></a><a class="icons" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="icon fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/Machine-Learning/">Machine Learning</a></div><!--!--></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2024/09/05/%E5%BC%82%E5%B8%B8%E6%A3%80%E6%B5%8B/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">异常检测</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2024/09/05/%E8%81%9A%E7%B1%BB%E7%AE%97%E6%B3%95/"><span class="level-item">聚类算法</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><!--!--></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1 is-sticky"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="https://s2.loli.net/2024/11/11/Ryr92nIiLw3mVQB.jpg" alt="yzd"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">yzd</p><p class="is-size-6 is-block">Computer Science</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>郑州</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">23</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Category</p><a href="/categories"><p class="title">1</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">3</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/yzd11/" target="_blank" rel="me noopener">Follow</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Github" href="https://github.com/yzd11/"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="语雀" href="https://www.yuque.com/yzd11/myblog/"><i class="fa-solid fa-feather"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="CSDN" href="https://blog.csdn.net/yzd111/"><i class="fa-solid fa-c"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Blog" href="https://yzd11.github.io/"><i class="fa-brands fa-blogger-b"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">Catalogue</h3><ul class="menu-list"><li><a class="level is-mobile" href="#gokuz"><span class="level-left"><span class="level-item">1</span><span class="level-item">模型评估</span></span></a></li><li><a class="level is-mobile" href="#VUEmn"><span class="level-left"><span class="level-item">2</span><span class="level-item">交叉验证</span></span></a></li><li><a class="level is-mobile" href="#MIohY"><span class="level-left"><span class="level-item">3</span><span class="level-item">偏差和方差</span></span></a></li><li><a class="level is-mobile" href="#lCymw"><span class="level-left"><span class="level-item">4</span><span class="level-item">学习曲线</span></span></a></li><li><a class="level is-mobile" href="#f3N9o"><span class="level-left"><span class="level-item">5</span><span class="level-item">机器学习开发的流程</span></span></a></li><li><a class="level is-mobile" href="#vRBQZ"><span class="level-left"><span class="level-item">6</span><span class="level-item">误差分析</span></span></a></li><li><a class="level is-mobile" href="#kUT1F"><span class="level-left"><span class="level-item">7</span><span class="level-item">数据增强</span></span></a></li><li><a class="level is-mobile" href="#lOcaF"><span class="level-left"><span class="level-item">8</span><span class="level-item">迁移学习</span></span></a></li><li><a class="level is-mobile" href="#MeBRM"><span class="level-left"><span class="level-item">9</span><span class="level-item">机器学习项目的完整流程</span></span></a></li><li><a class="level is-mobile" href="#TMq86"><span class="level-left"><span class="level-item">10</span><span class="level-item">倾斜数据集的误差指标</span></span></a></li><li><a class="level is-mobile" href="#LDFnN"><span class="level-left"><span class="level-item">11</span><span class="level-item">精准率和召回率</span></span></a></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/blog/"><span class="level-start"><span class="level-item">blog</span></span><span class="level-end"><span class="level-item tag">23</span></span></a></li></ul></div></div></div><div class="column-right-shadow is-hidden-widescreen"></div></div><div class="column column-right is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only order-3"><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-11-19T08:27:32.000Z">2024-11-19</time></p><p class="title"><a href="/2024/11/19/Self-Attention/">Self-Attention</a></p><p class="categories"><a href="/categories/blog/">blog</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-11-08T14:27:09.000Z">2024-11-08</time></p><p class="title"><a href="/2024/11/08/Transformer/">Transformer</a></p><p class="categories"><a href="/categories/blog/">blog</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-10-24T13:28:27.000Z">2024-10-24</time></p><p class="title"><a href="/2024/10/24/RNN/">RNN</a></p><p class="categories"><a href="/categories/blog/">blog</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-10-19T14:18:19.000Z">2024-10-19</time></p><p class="title"><a href="/2024/10/19/%E8%AE%AD%E7%BB%83%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">训练神经网络</a></p><p class="categories"><a href="/categories/blog/">blog</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-10-19T13:23:46.000Z">2024-10-19</time></p><p class="title"><a href="/2024/10/19/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">神经网络</a></p><p class="categories"><a href="/categories/blog/">blog</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2024/11/"><span class="level-start"><span class="level-item">November 2024</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/10/"><span class="level-start"><span class="level-item">October 2024</span></span><span class="level-end"><span class="level-item tag">10</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/09/"><span class="level-start"><span class="level-item">September 2024</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/08/"><span class="level-start"><span class="level-item">August 2024</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/07/"><span class="level-start"><span class="level-item">July 2024</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></div></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">Tags</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/Deep-Learning/"><span class="tag">Deep Learning</span><span class="tag">8</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Machine-Learning/"><span class="tag">Machine Learning</span><span class="tag">14</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Reinforcement-learning/"><span class="tag">Reinforcement learning</span><span class="tag">1</span></a></div></div></div></div></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="https://s2.loli.net/2024/11/11/wIobSZOAEGchgVv.png" alt="yzd&#039;s Log Book" height="28"></a><p class="is-size-7"><span>&copy; 2024 yzd</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p><p class="is-size-7">用💖发电</p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/yzd11/"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script data-pjax src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script data-pjax src="/js/back_to_top.js" defer></script><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "This website uses cookies to improve your experience.",
+          dismiss: "Got it!",
+          allow: "Allow cookies",
+          deny: "Decline",
+          link: "Learn more",
+          policy: "Cookie Policy",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script type="text/javascript" id="MathJax-script" async>MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      },
+      chtml: {
+        matchFontHeight: false
+      }
+    };</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script><!--!--><script data-pjax src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script></body></html>

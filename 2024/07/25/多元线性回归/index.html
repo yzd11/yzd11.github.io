@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="referrer" content="no-referrer"><title>多元线性回归 - yzd&#039;s Log Book</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="yzd&#039;s Log Book"><meta name="msapplication-TileImage" content="https://s2.loli.net/2024/11/11/wIobSZOAEGchgVv.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="yzd&#039;s Log Book"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="了解多元线性回归算法"><meta property="og:type" content="blog"><meta property="og:title" content="多元线性回归"><meta property="og:url" content="https://yzd11.github.io/2024/07/25/%E5%A4%9A%E5%85%83%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/"><meta property="og:site_name" content="yzd&#039;s Log Book"><meta property="og:description" content="了解多元线性回归算法"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1721651987042-770b7d19-1571-42f4-8690-6083d47322f5.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1721653303918-b26593cc-3b5d-4e03-a332-237fa7fc8705.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1721654130159-2b616a8e-1d64-46e0-8241-28db24903632.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1721654494660-6c252496-ecf6-4931-8d64-8c490bd38f74.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1721655295184-5e5445db-9740-4b7e-bd15-b18e465007c0.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1721655669828-ba5a39df-ccdb-42cf-97b7-b582999fcda9.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1721709149884-fe6e7635-c1df-4587-90e3-99f390b0efd1.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1721709099681-6dd0c748-e3d2-44b1-afbe-5b00208d30b8.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1721711591874-0488569e-08f5-4fee-9b31-054ac4a32598.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1721711650228-5c6c4862-911c-4154-8f4a-3426340ceb50.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1721712385249-93771517-db68-4c17-bcec-3a094031fc21.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1721713455382-42869d41-36c8-4c37-988a-5ffcdb3b3e9d.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1721713876305-5189db56-a9f5-47a1-9486-93a80635f4bb.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1721714185230-8938f4cc-3d30-4d8a-a4d6-10c3b6b280f0.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1721714660682-f2b715ef-0d36-4774-8472-37c65efafbd8.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1721715270111-27f06ce4-3e08-488d-8fd9-ce3c5aa3c367.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1721715347348-6080ec72-4692-4235-b509-52af52bfc060.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1721830579992-cfc5d7f0-48f0-414b-8d1e-6c97796d52e8.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1721828914662-34be5d9a-6c84-4487-b596-17ca371d9c6f.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1721830877997-1203855c-206a-4214-92e5-902a24d52edb.png"><meta property="article:published_time" content="2024-07-25T12:20:45.000Z"><meta property="article:modified_time" content="2024-11-19T09:28:01.503Z"><meta property="article:author" content="yzd"><meta property="article:tag" content="Machine Learning"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1721651987042-770b7d19-1571-42f4-8690-6083d47322f5.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://yzd11.github.io/2024/07/25/%E5%A4%9A%E5%85%83%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/"},"headline":"多元线性回归","image":["https://cdn.nlark.com/yuque/0/2024/png/40370285/1721651987042-770b7d19-1571-42f4-8690-6083d47322f5.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1721653303918-b26593cc-3b5d-4e03-a332-237fa7fc8705.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1721654130159-2b616a8e-1d64-46e0-8241-28db24903632.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1721654494660-6c252496-ecf6-4931-8d64-8c490bd38f74.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1721655295184-5e5445db-9740-4b7e-bd15-b18e465007c0.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1721655669828-ba5a39df-ccdb-42cf-97b7-b582999fcda9.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1721709149884-fe6e7635-c1df-4587-90e3-99f390b0efd1.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1721709099681-6dd0c748-e3d2-44b1-afbe-5b00208d30b8.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1721711591874-0488569e-08f5-4fee-9b31-054ac4a32598.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1721711650228-5c6c4862-911c-4154-8f4a-3426340ceb50.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1721712385249-93771517-db68-4c17-bcec-3a094031fc21.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1721713455382-42869d41-36c8-4c37-988a-5ffcdb3b3e9d.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1721713876305-5189db56-a9f5-47a1-9486-93a80635f4bb.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1721714185230-8938f4cc-3d30-4d8a-a4d6-10c3b6b280f0.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1721714660682-f2b715ef-0d36-4774-8472-37c65efafbd8.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1721715270111-27f06ce4-3e08-488d-8fd9-ce3c5aa3c367.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1721715347348-6080ec72-4692-4235-b509-52af52bfc060.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1721830579992-cfc5d7f0-48f0-414b-8d1e-6c97796d52e8.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1721828914662-34be5d9a-6c84-4487-b596-17ca371d9c6f.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1721830877997-1203855c-206a-4214-92e5-902a24d52edb.png"],"datePublished":"2024-07-25T12:20:45.000Z","dateModified":"2024-11-19T09:28:01.503Z","author":{"@type":"Person","name":"yzd"},"publisher":{"@type":"Organization","name":"yzd's Log Book","logo":{"@type":"ImageObject","url":"https://s2.loli.net/2024/11/11/wIobSZOAEGchgVv.png"}},"description":"了解多元线性回归算法"}</script><link rel="canonical" href="https://yzd11.github.io/2024/07/25/%E5%A4%9A%E5%85%83%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/"><link rel="icon" href="https://s2.loli.net/2024/11/11/wIobSZOAEGchgVv.png"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link data-pjax rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link data-pjax rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head><body class="is-3-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="https://s2.loli.net/2024/11/11/wIobSZOAEGchgVv.png" alt="yzd&#039;s Log Book" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">YZD&#039;S LOG BOOK</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/yzd11/"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2024-07-25T12:20:45.000Z" title="2024/7/25 20:20:45">2024-07-25</time></span><span class="level-item">Updated&nbsp;<time dateTime="2024-11-19T09:28:01.503Z" title="2024/11/19 17:28:01">2024-11-19</time></span><span class="level-item"><a class="link-muted" href="/categories/blog/">blog</a></span><span class="level-item">13 minutes read (About 2011 words)</span></div></div><h1 class="title is-3 is-size-4-mobile">多元线性回归</h1><div class="content"><p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1721651987042-770b7d19-1571-42f4-8690-6083d47322f5.png"></p>
+<p>在前面的章节中，我们仅仅使用了一个变量$ x $，接下来我们将考虑多个变量的影响。</p>
+<p>$ x_j $：第$ j $个特征</p>
+<p>$ n $:表示特征的数目，有$ n $列</p>
+<p>$ \vec{\mathrm{x}}^{(i)} $:表示第$ i $个训练示例，也可以称为一组行向量</p>
+<p>$ x_{j}^{(i)} $:表示第$ j $个特征的第$ i $个训练示例</p>
+<p> <img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1721653303918-b26593cc-3b5d-4e03-a332-237fa7fc8705.png"></p>
+<p>我们可以将上面的逐个相乘再相加的式子写成一个向量之间点乘的形式，更加简洁。通过引入多个特征，这也被称为多元线性回归。</p>
+<h2 id="x5f3f">向量化</h2>
+
+
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1721654130159-2b616a8e-1d64-46e0-8241-28db24903632.png"></p>
+<p>对于$ f_{w,b}(x) $的表示我们有三种不同的方式，分别为直接相加，循环，使用向量表示。前两者不仅在编写上不如第三种，而且由于考虑到numpy可以实现GPU加速，在运算速度上也是胜过前两者。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1721654494660-6c252496-ecf6-4931-8d64-8c490bd38f74.png"></p>
+<p>可以看到由于numpy可以将$ w,x $之间并行处理，不需要一步步的计算，因此速度远远快于累加的循环方法。</p>
+<h2 id="ml1h6">梯度下降</h2>
+
+
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1721655295184-5e5445db-9740-4b7e-bd15-b18e465007c0.png"></p>
+<p>我们将$ w $向量化，可以得到右边的式子。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1721655669828-ba5a39df-ccdb-42cf-97b7-b582999fcda9.png"></p>
+<p>需要注意$ w_j $的计算，最后的$ x_{j}^{(i)} $是一个数，而不是一个向量。</p>
+<h2 id="GvZr0">特征缩放</h2>
+
+
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1721709149884-fe6e7635-c1df-4587-90e3-99f390b0efd1.png"></p>
+<p>像上面这个例子一样，由于面积这个特征的取值范围远远大于房间数目这个取值范围，因此我们可能会需要一个更聪明的模型才可以选择一个合适的$ w1,w2 $使得预估结果更加合理。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1721709099681-6dd0c748-e3d2-44b1-afbe-5b00208d30b8.png"></p>
+<p>即使我们的模型足够聪明，选择了合适的$ w1,w2 $。但是我们可以看到上边两幅图中的特征值和等高线的分布都是十分不均匀的，这可能会导致我们在进行梯度下降的时候会折返多次。这时候就需要我们对于特征值进行一些缩放，使其可以更加均匀的分布，在进行梯度下降时可以更快的得到最小值。</p>
+<ol>
+<li>直接缩放</li>
+</ol>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1721711591874-0488569e-08f5-4fee-9b31-054ac4a32598.png"></p>
+<p>采用直接除以最大值的方式，使其范围在$ [0,1] $之间。</p>
+<ol start="2">
+<li><font style="color:rgba(0, 0, 0, 0.75);">Mean normalization</font></li>
+</ol>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1721711650228-5c6c4862-911c-4154-8f4a-3426340ceb50.png"></p>
+<p>使用$ x_{new}&#x3D;\frac{x-mean(x)}{max(x)-min(x)} $，通过减去均值在除以范围，使得范围在$ [-1,1] $之间。</p>
+<ol start="3">
+<li><font style="color:rgba(0, 0, 0, 0.75);"> Z-score normalization</font></li>
+</ol>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1721712385249-93771517-db68-4c17-bcec-3a094031fc21.png"></p>
+<p>使用$ x_{new}&#x3D;\frac{x-\mu}{\sigma} $，将数据变换为均值为$ 0 $，标准差为$ 1 $的分布切记，并非一定是正态的，只有原来就是正态分布才会变成标准正态化。</p>
+<p>同时由于这些变化都是线性的，对于数据本身的顺序不会造成影响。</p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/zwt20120701/p/12696876.html">数据标准化和归一化 方法小结 - 数说张小桃 - 博客园</a></p>
+<h2 id="hHsOZ">梯度下降收敛</h2>
+
+
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1721713455382-42869d41-36c8-4c37-988a-5ffcdb3b3e9d.png"></p>
+<p>通过左边的曲线我们看到当迭代次数达到$ 300 $时，我们的曲线的减少已经接近为0，在$ 400 $时已经接近于平衡。同时我们也可以使用一个$ \epsilon $来进行判断，当减少量小于这个数时，代表该曲线已经收敛。</p>
+<h2 id="EQTE5">选择合适的学习率</h2>
+
+
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1721713876305-5189db56-a9f5-47a1-9486-93a80635f4bb.png"></p>
+<p>如果曲线不是呈现前面的逐渐下降直到最终趋近于平衡的话，而是不断起伏或者上升，那么就代表程序本身出现了bug或者学习率设置的过大，使得无法找到最小值，这时候我们需要调整这个数，使得曲线可以慢慢下降到最小。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1721714185230-8938f4cc-3d30-4d8a-a4d6-10c3b6b280f0.png"></p>
+<p>在最开始选择一个很小的学习率，不断地增大直到无法收敛，然后根据这样找到一个合适的值。</p>
+<h2 id="CRziS">特征工程</h2>
+
+
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1721714660682-f2b715ef-0d36-4774-8472-37c65efafbd8.png"></p>
+<p><font style="color:rgb(51, 51, 51);">有时候原生特征不能完全满足预测的要求，那么可以根据一个或者多个原生特征衍生出其它可用或不可用的特征，这一过程称为“特征衍生”。特征衍生是特征工程一个比较重要的组成部分，它需要花费比较多的精力和时间尽量去认识原生特征和具体的预测命题，然后根据原生特征的特点构造出一些衍生特征。</font></p>
+<p><font style="color:rgb(51, 51, 51);">例如我们一开始使用长度和宽度分别作为特征进行预估，但是可以使用这两个值的乘积也就是面积作为新的特征进行预测，使得结果更加精准。</font></p>
+<h2 id="XO7Ji"><font style="color:rgb(51, 51, 51);">多项式回归</font></h2>
+
+
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1721715270111-27f06ce4-3e08-488d-8fd9-ce3c5aa3c367.png"></p>
+<p>我们已经使用了很久的$ f(w,b)&#x3D;wx+b $，现在让我们使用一个曲线来更好地拟合这些数据。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1721715347348-6080ec72-4692-4235-b509-52af52bfc060.png"></p>
+<p>我们可以使用不同的多项式函数，使得我么的曲线更好的拟合数据。</p>
+<h2 id="PpNYM">正规方程</h2>
+
+
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1721830579992-cfc5d7f0-48f0-414b-8d1e-6c97796d52e8.png"></p>
+<p>我们可以看到当偏微分为$ 0 $时，我们可以得到这个代价函数的最小值。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1721828914662-34be5d9a-6c84-4487-b596-17ca371d9c6f.png"></p>
+<p>根据以上推导我们可以得到一个公式$ \theta&#x3D;\begin{pmatrix}X^TX\end{pmatrix}^{-1}X^T\vec{y} $，通过这个式子我们无需在进行迭代可以直接得到我们需要的$ \theta $。</p>
+<p>对于其它的方式也可以参看刘建平老师的博客</p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/pinard/p/10825264.html">机器学习中的矩阵向量求导(四) 矩阵向量求导链式法则 - 刘建平Pinard - 博客园</a></p>
+<p><font style="color:rgb(51, 51, 51);">假如我们有</font>$ m $<font style="color:rgb(51, 51, 51);">个训练样本，</font>$ n $<font style="color:rgb(51, 51, 51);">个特征变量。</font></p>
+<table>
+<thead>
+<tr>
+<th>梯度下降法</th>
+<th>正规方程</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>缺点：<br/>1. <font style="color:rgb(51, 51, 51);">需要选择学习速率</font>$ α $<font style="color:rgb(51, 51, 51);">。</font><br/>2. <font style="color:rgb(51, 51, 51);">需要更多次的迭代</font><br/>3. <font style="color:rgb(51, 51, 51);">特征值范围相差太大时需要进行特征缩放。</font></td>
+<td>缺点：<br/>1. 当特征数$ n $很大时，运算的很慢，因为求解逆矩阵的时间复杂度很高，属于$ O(n^3) $<font style="color:rgb(51, 51, 51);">。</font></td>
+</tr>
+<tr>
+<td>优点：<br/>1. 当特征数$ n $很大时，也可以正常工作。</td>
+<td>优点：<br/>1. <font style="color:rgb(51, 51, 51);">不需要选择学习速率</font>$ α $<font style="color:rgb(51, 51, 51);">。</font><br/>2. <font style="color:rgb(51, 51, 51);">不需要多次迭代</font><br/>3. 不需要特征缩放</td>
+</tr>
+<tr>
+<td>当$ n&lt;10000 $时，通常使用正规方程，当$ n&gt;&#x3D;10000 $时，要考虑使用梯度下降。一些更加复杂的算法仅可以使用梯度下降。</td>
+<td></td>
+</tr>
+</tbody></table>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1721830877997-1203855c-206a-4214-92e5-902a24d52edb.png"></p>
+<p>同时我们需要注意并不是所有的情况$ X^TX $都是可逆的，当$ X $中的特征$ X1,X2 $出现线性相关时，或者需要的特征数$ n $大于等于（$ n $等于$ m $时需要满足$ det(X) $不等于$ 0 $）给出的样本数$ m $的个数时会出现不可逆的现象。从数学的角度来看就是矩阵不满秩。</p>
+<p>可以采取的措施就是删掉一些多余的特征，或者使用正则化。</p>
+</div><div class="article-licensing box"><div class="licensing-title"><p>多元线性回归</p><p><a href="https://yzd11.github.io/2024/07/25/多元线性回归/">https://yzd11.github.io/2024/07/25/多元线性回归/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>Author</h6><p>yzd</p></div></div><div class="level-item is-narrow"><div><h6>Posted on</h6><p>2024-07-25</p></div></div><div class="level-item is-narrow"><div><h6>Updated on</h6><p>2024-11-19</p></div></div><div class="level-item is-narrow"><div><h6>Licensed under</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="icons" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="icon fab fa-creative-commons-by"></i></a><a class="icons" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="icon fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/Machine-Learning/">Machine Learning</a></div><!--!--></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2024/08/19/%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">逻辑回归</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2024/07/22/%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D/"><span class="level-item">梯度下降</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><!--!--></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1 is-sticky"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="https://s2.loli.net/2024/11/11/Ryr92nIiLw3mVQB.jpg" alt="yzd"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">yzd</p><p class="is-size-6 is-block">Computer Science</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>郑州</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">23</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Category</p><a href="/categories"><p class="title">1</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">3</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/yzd11/" target="_blank" rel="me noopener">Follow</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Github" href="https://github.com/yzd11/"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="语雀" href="https://www.yuque.com/yzd11/myblog/"><i class="fa-solid fa-feather"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="CSDN" href="https://blog.csdn.net/yzd111/"><i class="fa-solid fa-c"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Blog" href="https://yzd11.github.io/"><i class="fa-brands fa-blogger-b"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">Catalogue</h3><ul class="menu-list"><li><a class="level is-mobile" href="#x5f3f"><span class="level-left"><span class="level-item">1</span><span class="level-item">向量化</span></span></a></li><li><a class="level is-mobile" href="#ml1h6"><span class="level-left"><span class="level-item">2</span><span class="level-item">梯度下降</span></span></a></li><li><a class="level is-mobile" href="#GvZr0"><span class="level-left"><span class="level-item">3</span><span class="level-item">特征缩放</span></span></a></li><li><a class="level is-mobile" href="#hHsOZ"><span class="level-left"><span class="level-item">4</span><span class="level-item">梯度下降收敛</span></span></a></li><li><a class="level is-mobile" href="#EQTE5"><span class="level-left"><span class="level-item">5</span><span class="level-item">选择合适的学习率</span></span></a></li><li><a class="level is-mobile" href="#CRziS"><span class="level-left"><span class="level-item">6</span><span class="level-item">特征工程</span></span></a></li><li><a class="level is-mobile" href="#XO7Ji"><span class="level-left"><span class="level-item">7</span><span class="level-item">多项式回归</span></span></a></li><li><a class="level is-mobile" href="#PpNYM"><span class="level-left"><span class="level-item">8</span><span class="level-item">正规方程</span></span></a></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/blog/"><span class="level-start"><span class="level-item">blog</span></span><span class="level-end"><span class="level-item tag">23</span></span></a></li></ul></div></div></div><div class="column-right-shadow is-hidden-widescreen"></div></div><div class="column column-right is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only order-3"><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-11-19T08:27:32.000Z">2024-11-19</time></p><p class="title"><a href="/2024/11/19/Self-Attention/">Self-Attention</a></p><p class="categories"><a href="/categories/blog/">blog</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-11-08T14:27:09.000Z">2024-11-08</time></p><p class="title"><a href="/2024/11/08/Transformer/">Transformer</a></p><p class="categories"><a href="/categories/blog/">blog</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-10-24T13:28:27.000Z">2024-10-24</time></p><p class="title"><a href="/2024/10/24/RNN/">RNN</a></p><p class="categories"><a href="/categories/blog/">blog</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-10-19T14:18:19.000Z">2024-10-19</time></p><p class="title"><a href="/2024/10/19/%E8%AE%AD%E7%BB%83%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">训练神经网络</a></p><p class="categories"><a href="/categories/blog/">blog</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-10-19T13:23:46.000Z">2024-10-19</time></p><p class="title"><a href="/2024/10/19/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">神经网络</a></p><p class="categories"><a href="/categories/blog/">blog</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2024/11/"><span class="level-start"><span class="level-item">November 2024</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/10/"><span class="level-start"><span class="level-item">October 2024</span></span><span class="level-end"><span class="level-item tag">10</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/09/"><span class="level-start"><span class="level-item">September 2024</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/08/"><span class="level-start"><span class="level-item">August 2024</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/07/"><span class="level-start"><span class="level-item">July 2024</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></div></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">Tags</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/Deep-Learning/"><span class="tag">Deep Learning</span><span class="tag">8</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Machine-Learning/"><span class="tag">Machine Learning</span><span class="tag">14</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Reinforcement-learning/"><span class="tag">Reinforcement learning</span><span class="tag">1</span></a></div></div></div></div></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="https://s2.loli.net/2024/11/11/wIobSZOAEGchgVv.png" alt="yzd&#039;s Log Book" height="28"></a><p class="is-size-7"><span>&copy; 2024 yzd</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p><p class="is-size-7">用💖发电</p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/yzd11/"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script data-pjax src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script data-pjax src="/js/back_to_top.js" defer></script><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "This website uses cookies to improve your experience.",
+          dismiss: "Got it!",
+          allow: "Allow cookies",
+          deny: "Decline",
+          link: "Learn more",
+          policy: "Cookie Policy",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script type="text/javascript" id="MathJax-script" async>MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      },
+      chtml: {
+        matchFontHeight: false
+      }
+    };</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script><!--!--><script data-pjax src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script></body></html>

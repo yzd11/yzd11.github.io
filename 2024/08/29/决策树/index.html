@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="referrer" content="no-referrer"><title>决策树 - yzd&#039;s Log Book</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="yzd&#039;s Log Book"><meta name="msapplication-TileImage" content="https://s2.loli.net/2024/11/11/wIobSZOAEGchgVv.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="yzd&#039;s Log Book"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="了解决策树算法"><meta property="og:type" content="blog"><meta property="og:title" content="决策树"><meta property="og:url" content="https://yzd11.github.io/2024/08/29/%E5%86%B3%E7%AD%96%E6%A0%91/"><meta property="og:site_name" content="yzd&#039;s Log Book"><meta property="og:description" content="了解决策树算法"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1724056656621-5243b457-9280-4eb2-92af-43b50d1eb973.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1724057265159-77bde0cb-e400-4bc2-88cc-6fce126b516f.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1724057659778-0d3d08ff-51d5-4a87-aea1-b40b7edf66e3.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1724064847868-3690c079-85e0-49cb-b168-f0dd41679d7f.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1724065163720-48762f91-e617-492c-aa8a-1d867306a310.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1724071120642-b1bce5ed-b7c2-48ff-ad7d-16c1485ae1e4.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1724071349733-a28ff25c-677d-4d6b-8110-f16f5c8f908e.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1724072346381-1c3c2c13-d2b0-4060-bef0-78cf618c1b6f.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1724072376353-a5802b56-79a6-4b00-bf1f-4eefc7922a2a.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1724130699991-62a9351c-38d3-4d8b-ba80-ef3976e86f2e.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1724131599524-abc87c7e-d8ee-4777-af80-38b3aeb253d0.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1724133102976-4083d505-8f3e-4d43-b5ca-076dc1093264.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1724133261296-2763a68f-cc47-435f-b9ed-6acc9072e0ea.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1724133836073-b4c2f28f-3c57-42ed-bd6c-006a4162421c.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1724133985511-c8c7f50e-a1e7-4e14-8a20-10b673376007.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1724134341182-a351940b-1a83-4660-bfc1-7057165c0053.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1724135272784-497c56a6-c919-4b1a-9c2f-ccf67778f353.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1724135196427-0a2a2a39-f526-4d23-ae9f-8e8659816541.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1724864141732-7be43bd1-035c-4f8c-ab03-240869e161d1.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1724864539041-3e2d9208-fc9f-447d-a46e-350d524107bd.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1724865121997-d43bf438-f9d2-491a-8e0f-0e9face44c01.png"><meta property="article:published_time" content="2024-08-28T17:20:17.000Z"><meta property="article:modified_time" content="2024-11-19T09:30:23.231Z"><meta property="article:author" content="yzd"><meta property="article:tag" content="Machine Learning"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1724056656621-5243b457-9280-4eb2-92af-43b50d1eb973.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://yzd11.github.io/2024/08/29/%E5%86%B3%E7%AD%96%E6%A0%91/"},"headline":"决策树","image":["https://cdn.nlark.com/yuque/0/2024/png/40370285/1724056656621-5243b457-9280-4eb2-92af-43b50d1eb973.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1724057265159-77bde0cb-e400-4bc2-88cc-6fce126b516f.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1724057659778-0d3d08ff-51d5-4a87-aea1-b40b7edf66e3.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1724064847868-3690c079-85e0-49cb-b168-f0dd41679d7f.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1724065163720-48762f91-e617-492c-aa8a-1d867306a310.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1724071120642-b1bce5ed-b7c2-48ff-ad7d-16c1485ae1e4.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1724071349733-a28ff25c-677d-4d6b-8110-f16f5c8f908e.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1724072346381-1c3c2c13-d2b0-4060-bef0-78cf618c1b6f.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1724072376353-a5802b56-79a6-4b00-bf1f-4eefc7922a2a.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1724130699991-62a9351c-38d3-4d8b-ba80-ef3976e86f2e.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1724131599524-abc87c7e-d8ee-4777-af80-38b3aeb253d0.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1724133102976-4083d505-8f3e-4d43-b5ca-076dc1093264.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1724133261296-2763a68f-cc47-435f-b9ed-6acc9072e0ea.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1724133836073-b4c2f28f-3c57-42ed-bd6c-006a4162421c.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1724133985511-c8c7f50e-a1e7-4e14-8a20-10b673376007.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1724134341182-a351940b-1a83-4660-bfc1-7057165c0053.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1724135272784-497c56a6-c919-4b1a-9c2f-ccf67778f353.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1724135196427-0a2a2a39-f526-4d23-ae9f-8e8659816541.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1724864141732-7be43bd1-035c-4f8c-ab03-240869e161d1.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1724864539041-3e2d9208-fc9f-447d-a46e-350d524107bd.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1724865121997-d43bf438-f9d2-491a-8e0f-0e9face44c01.png"],"datePublished":"2024-08-28T17:20:17.000Z","dateModified":"2024-11-19T09:30:23.231Z","author":{"@type":"Person","name":"yzd"},"publisher":{"@type":"Organization","name":"yzd's Log Book","logo":{"@type":"ImageObject","url":"https://s2.loli.net/2024/11/11/wIobSZOAEGchgVv.png"}},"description":"了解决策树算法"}</script><link rel="canonical" href="https://yzd11.github.io/2024/08/29/%E5%86%B3%E7%AD%96%E6%A0%91/"><link rel="icon" href="https://s2.loli.net/2024/11/11/wIobSZOAEGchgVv.png"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link data-pjax rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link data-pjax rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head><body class="is-3-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="https://s2.loli.net/2024/11/11/wIobSZOAEGchgVv.png" alt="yzd&#039;s Log Book" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">YZD&#039;S LOG BOOK</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/yzd11/"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2024-08-28T17:20:17.000Z" title="2024/8/29 01:20:17">2024-08-29</time></span><span class="level-item">Updated&nbsp;<time dateTime="2024-11-19T09:30:23.231Z" title="2024/11/19 17:30:23">2024-11-19</time></span><span class="level-item"><a class="link-muted" href="/categories/blog/">blog</a></span><span class="level-item">17 minutes read (About 2558 words)</span></div></div><h1 class="title is-3 is-size-4-mobile">决策树</h1><div class="content"><h2 id="j7z1U">引入</h2>
+
+
+
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1724056656621-5243b457-9280-4eb2-92af-43b50d1eb973.png"></p>
+<p>我们引入一个新的模型-决策树，通过这个二叉树我们可以实现对于猫的分类，从根节点出发，判断每个节点是还是否，最终我们在叶子节点得到结果。</p>
+<h2 id="PYoeY">学习过程</h2>
+
+
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1724057265159-77bde0cb-e400-4bc2-88cc-6fce126b516f.png"></p>
+<p>第一步：决定每个节点应该使用什么特征，尽量使得分离后的纯度更大或者杂质更少。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1724057659778-0d3d08ff-51d5-4a87-aea1-b40b7edf66e3.png"></p>
+<p>第二步：决定什么时候停止。可以分为以下四种情况：</p>
+<ul>
+<li>当一个节点的纯度达到$ 100% $</li>
+<li>当一个节点的深度超过我们限制的最大深度</li>
+<li>当继续分裂的提高值小于一个阈值时</li>
+<li>当这个节点的纯度达到一个阈值时</li>
+</ul>
+<h2 id="Fx3Ht">信息熵</h2>
+
+
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1724064847868-3690c079-85e0-49cb-b168-f0dd41679d7f.png"></p>
+<p>为了说明纯度，我们引入了熵这个概念。当有一半为猫，一半为狗的时候显然这个的熵是最高的，也代表是最不纯的。当全部为猫，或者全部为狗的时候则代表熵是最低的，也代表是最纯的。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1724065163720-48762f91-e617-492c-aa8a-1d867306a310.png"></p>
+<p>我们可以使用这个熵函数$ \begin{aligned}<br>H(p_{1})&amp; &#x3D; -p_{1}log_{2}(p_{1})- p_{0}log_{2}(p_{0}) \<br>&amp;&#x3D;-p_{1} log_{2}(p_{1})-(1-p_{1})log_{2}(1-p_{1})<br>\end{aligned} $，这个就是信息熵的定义，即一个系统中所有事件的信息量累积和。一个越确定的系统，那么它的信息熵自然也就越小，因此我们可以使用信息熵作为衡量纯度的标准。</p>
+<p>关于信息熵，交叉熵的详细解释可以参照这个视频：</p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV15V411W7VB/?spm_id_from=333.1007.top_right_bar_window_history.content.click&vd_source=a1e5dd0aa99678acd93e274baaf2577f">“交叉熵”如何做损失函数？打包理解“信息量”、“比特”、“熵”、“KL散度”、“交叉熵”_哔哩哔哩_bilibili</a></p>
+<h2 id="nPwLc">信息增益</h2>
+
+
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1724071120642-b1bce5ed-b7c2-48ff-ad7d-16c1485ae1e4.png"></p>
+<p><font style="background-color:#FBDE28;">信息增益</font>（information gain） 代表的是在一个条件下，信息复杂度（不确定性）减少的程度，也即纯度提高的程度。</p>
+<p>我们通过计算每个分裂特征的信息增益，作为一种衡量的标准。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1724071349733-a28ff25c-677d-4d6b-8110-f16f5c8f908e.png"></p>
+<p>通过$ &#x3D;\mathrm{H}(\mathrm{p}<em>{1}^{\mathrm{root}}) -\left(w^{\mathrm{left}}H\left(p</em>{1}^{\mathrm{left}}\right)+w^{\mathrm{right}}H\left(p_{1}^{\mathrm{right}}\right)\right) $这个公式我们可以得到每个分裂特征的信息增益。</p>
+<h2 id="b6G5H">完整流程</h2>
+
+
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1724072346381-1c3c2c13-d2b0-4060-bef0-78cf618c1b6f.png"></p>
+<p>第一步：将所有的样本放在根节点</p>
+<p>第二步：计算所有分裂特征的信息增益，选择其中一个最高的</p>
+<p>第三步：通过分裂特征切割数据集，创建左右节点</p>
+<p>第四步：直到一定条件停止分裂</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1724072376353-a5802b56-79a6-4b00-bf1f-4eefc7922a2a.png"></p>
+<p>首先在根节点选择的数据集是全部的样本，接着在左节点我们选择被分割的那五个作为样本数据集，在右节点选择另外五个作为数据集，其中每次选择的数据集不同。</p>
+<p><font style="color:rgb(51, 51, 51);">根据一定的策略 , 确定哪个属性作为树根 , 然后每个子树 , 在确定剩余的哪个属性作为子树的树根 , 这是递归问题 ，就像二叉树的深度优先遍历一样。</font></p>
+<h2 id="h9ue2"><font style="color:rgb(51, 51, 51);">独热码</font></h2>
+
+
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1724130699991-62a9351c-38d3-4d8b-ba80-ef3976e86f2e.png"></p>
+<p>为了处理两个以上的离散特征值，我们选择了使用独热码的形式，将其中符合特征的值设置为$ 1 $，使用这种方式就可以表示$ k $个的离散特征值，接下来处理连续的特征值。</p>
+<h2 id="gsj7r">连续特征值</h2>
+
+
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1724131599524-abc87c7e-d8ee-4777-af80-38b3aeb253d0.png"></p>
+<p>对于连续的特征值，我们可以尝试不同的阈值，分别计算对应的信息增益，最终计算出最高的那个阈值，并使用这个作为我们的分裂特征。</p>
+<h2 id="W7W0l">回归树</h2>
+
+
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1724133102976-4083d505-8f3e-4d43-b5ca-076dc1093264.png"></p>
+<p>我们对之前的决策树进行泛化操作，使得原本仅可以判断分类的决策树也可以实现回归问题，跟决策树相同，仅仅在输出结果时将原本的分类改为分类的重量平均值，实现了对于重量的预测。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1724133261296-2763a68f-cc47-435f-b9ed-6acc9072e0ea.png"></p>
+<p>在计算应该选择那个节点作为新节点时，我们不再选择使用信息熵作为需要的指标，而是使用方差，最终我们计算出减少方差最多的那个节点，将其选择为分裂节点。</p>
+<h2 id="U412t">多决策树</h2>
+
+
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1724133836073-b4c2f28f-3c57-42ed-bd6c-006a4162421c.png"></p>
+<p>一棵树对于数据是很敏感的，我们仅仅改变其中的一个样本，我们选择的信息增益最高的分裂特征可能就会发生改变从而得到不同的左右节点，因此我们需要使用多颗决策树同时决策。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1724133985511-c8c7f50e-a1e7-4e14-8a20-10b673376007.png"></p>
+<p>我们使用三颗决策树对于同一个样本进行预测，最终通过最多数的投票做出正确预测。</p>
+<h2 id="jut8G">有放回抽样</h2>
+
+
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1724134341182-a351940b-1a83-4660-bfc1-7057165c0053.png"></p>
+<p>我们将要抽样的数据集放在一个袋子里，每次选择其中一个，然后放回继续抽取，最终我们可以得到一个跟原先数据集很相似，但是又不完全相同的新的数据集，这是构造决策树集合的关键步骤。</p>
+<h2 id="DkvDP">随机森林</h2>
+
+
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1724135272784-497c56a6-c919-4b1a-9c2f-ccf67778f353.png"></p>
+<p>我们循环$ B $次，每次都按照之前有放回抽样的方式这样就可以构建$ B $个决策树，但是即使这样我们的根节点还是有很大的概率选择相同的分裂特征，因此我们接下来使用在每个节点随机选取属性的方式构建随即森林。这种方式也称为$ Bagged \enspace decision \enspace tree $。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1724135196427-0a2a2a39-f526-4d23-ae9f-8e8659816541.png"></p>
+<ol>
+<li><font style="color:rgb(87, 88, 99);">一个样本容量为N的样本，有放回的抽取N次，每次抽取1个，最终形成了N个样本。这选择好了的N个样本用来训练一个决策树，作为决策树根节点处的样本。</font></li>
+<li><font style="color:rgb(87, 88, 99);">当每个样本有M个属性时，在决策树的每个节点需要分裂时，随机从这M个属性中选取出m个属性，满足条件m &lt;&lt; M。然后从这m个属性中采用某种策略（比如说信息增益）来选择1个属性作为该节点的分裂属性。</font></li>
+<li><font style="color:rgb(87, 88, 99);">决策树形成过程中每个节点都要按照步骤2来分裂（很容易理解，如果下一次该节点选出来的那一个属性是刚刚其父节点分裂时用过的属性，则该节点已经达到了叶子节点，无须继续分裂了）。一直到不能够再分裂为止。注意整个决策树形成过程中没有进行剪枝。</font></li>
+<li><font style="color:rgb(87, 88, 99);">按照步骤1~3建立大量的决策树，这样就构成了随机森林了。</font></li>
+</ol>
+<h2 id="I698f">XGBoost</h2>
+
+
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1724864141732-7be43bd1-035c-4f8c-ab03-240869e161d1.png"></p>
+<blockquote>
+<p>目前来说，同质个体学习器的应用是最广泛的，一般我们常说的集成学习的方法都是指的同质个体学习器。而同质个体学习器使用最多的模型是CART决策树和神经网络。同质个体学习器按照个体学习器之间是否存在依赖关系可以分为两类，第一个是个体学习器之间存在强依赖关系，一系列个体学习器基本都需要串行生成，代表算法是boosting系列算法，第二个是个体学习器之间不存在强依赖关系，一系列个体学习器可以并行生成，代表算法是bagging和随机森林（Random Forest）系列算法。</p>
+</blockquote>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1724864539041-3e2d9208-fc9f-447d-a46e-350d524107bd.png"></p>
+<p>其中$ XGBoost $就是$ boosting $系列中的一个重要算法，它通过不断的调整学习器的权重，仅使用原始的训练集，而不是生成多个训练集，同时还内置了正则化以防止过度拟合，被广泛的用于各大比赛中。</p>
+<p>参照：</p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/pinard/p/6131423.html">集成学习原理小结 - 刘建平Pinard - 博客园</a></p>
+<h2 id="lG2R9">决策树VS神经网络</h2>
+
+
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1724865121997-d43bf438-f9d2-491a-8e0f-0e9face44c01.png"></p>
+<p>决策树：</p>
+<ul>
+<li>适合结构化数据，不推荐处理非结构化的图形和声音数据</li>
+<li>训练速度快</li>
+<li>小型决策树可以被人为解释其中每一步的作用</li>
+</ul>
+<p>神经网络：</p>
+<ul>
+<li>对于结构化和非结构化数据都工作的很好</li>
+<li>训练速度比决策树慢</li>
+<li>当训练数据量不足时，可以使用迁移学习</li>
+<li>当一个系统需要多个模型同时工作时，更容易构建大型的神经网络，决策树一次只能训练一颗</li>
+</ul>
+</div><div class="article-licensing box"><div class="licensing-title"><p>决策树</p><p><a href="https://yzd11.github.io/2024/08/29/决策树/">https://yzd11.github.io/2024/08/29/决策树/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>Author</h6><p>yzd</p></div></div><div class="level-item is-narrow"><div><h6>Posted on</h6><p>2024-08-29</p></div></div><div class="level-item is-narrow"><div><h6>Updated on</h6><p>2024-11-19</p></div></div><div class="level-item is-narrow"><div><h6>Licensed under</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="icons" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="icon fab fa-creative-commons-by"></i></a><a class="icons" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="icon fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/Machine-Learning/">Machine Learning</a></div><!--!--></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2024/09/05/%E8%81%9A%E7%B1%BB%E7%AE%97%E6%B3%95/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">聚类算法</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2024/08/19/%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/"><span class="level-item">逻辑回归</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><!--!--></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1 is-sticky"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="https://s2.loli.net/2024/11/11/Ryr92nIiLw3mVQB.jpg" alt="yzd"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">yzd</p><p class="is-size-6 is-block">Computer Science</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>郑州</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">23</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Category</p><a href="/categories"><p class="title">1</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">3</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/yzd11/" target="_blank" rel="me noopener">Follow</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Github" href="https://github.com/yzd11/"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="语雀" href="https://www.yuque.com/yzd11/myblog/"><i class="fa-solid fa-feather"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="CSDN" href="https://blog.csdn.net/yzd111/"><i class="fa-solid fa-c"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Blog" href="https://yzd11.github.io/"><i class="fa-brands fa-blogger-b"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">Catalogue</h3><ul class="menu-list"><li><a class="level is-mobile" href="#j7z1U"><span class="level-left"><span class="level-item">1</span><span class="level-item">引入</span></span></a></li><li><a class="level is-mobile" href="#PYoeY"><span class="level-left"><span class="level-item">2</span><span class="level-item">学习过程</span></span></a></li><li><a class="level is-mobile" href="#Fx3Ht"><span class="level-left"><span class="level-item">3</span><span class="level-item">信息熵</span></span></a></li><li><a class="level is-mobile" href="#nPwLc"><span class="level-left"><span class="level-item">4</span><span class="level-item">信息增益</span></span></a></li><li><a class="level is-mobile" href="#b6G5H"><span class="level-left"><span class="level-item">5</span><span class="level-item">完整流程</span></span></a></li><li><a class="level is-mobile" href="#h9ue2"><span class="level-left"><span class="level-item">6</span><span class="level-item">独热码</span></span></a></li><li><a class="level is-mobile" href="#gsj7r"><span class="level-left"><span class="level-item">7</span><span class="level-item">连续特征值</span></span></a></li><li><a class="level is-mobile" href="#W7W0l"><span class="level-left"><span class="level-item">8</span><span class="level-item">回归树</span></span></a></li><li><a class="level is-mobile" href="#U412t"><span class="level-left"><span class="level-item">9</span><span class="level-item">多决策树</span></span></a></li><li><a class="level is-mobile" href="#jut8G"><span class="level-left"><span class="level-item">10</span><span class="level-item">有放回抽样</span></span></a></li><li><a class="level is-mobile" href="#DkvDP"><span class="level-left"><span class="level-item">11</span><span class="level-item">随机森林</span></span></a></li><li><a class="level is-mobile" href="#I698f"><span class="level-left"><span class="level-item">12</span><span class="level-item">XGBoost</span></span></a></li><li><a class="level is-mobile" href="#lG2R9"><span class="level-left"><span class="level-item">13</span><span class="level-item">决策树VS神经网络</span></span></a></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/blog/"><span class="level-start"><span class="level-item">blog</span></span><span class="level-end"><span class="level-item tag">23</span></span></a></li></ul></div></div></div><div class="column-right-shadow is-hidden-widescreen"></div></div><div class="column column-right is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only order-3"><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-11-19T08:27:32.000Z">2024-11-19</time></p><p class="title"><a href="/2024/11/19/Self-Attention/">Self-Attention</a></p><p class="categories"><a href="/categories/blog/">blog</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-11-08T14:27:09.000Z">2024-11-08</time></p><p class="title"><a href="/2024/11/08/Transformer/">Transformer</a></p><p class="categories"><a href="/categories/blog/">blog</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-10-24T13:28:27.000Z">2024-10-24</time></p><p class="title"><a href="/2024/10/24/RNN/">RNN</a></p><p class="categories"><a href="/categories/blog/">blog</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-10-19T14:18:19.000Z">2024-10-19</time></p><p class="title"><a href="/2024/10/19/%E8%AE%AD%E7%BB%83%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">训练神经网络</a></p><p class="categories"><a href="/categories/blog/">blog</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-10-19T13:23:46.000Z">2024-10-19</time></p><p class="title"><a href="/2024/10/19/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">神经网络</a></p><p class="categories"><a href="/categories/blog/">blog</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2024/11/"><span class="level-start"><span class="level-item">November 2024</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/10/"><span class="level-start"><span class="level-item">October 2024</span></span><span class="level-end"><span class="level-item tag">10</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/09/"><span class="level-start"><span class="level-item">September 2024</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/08/"><span class="level-start"><span class="level-item">August 2024</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/07/"><span class="level-start"><span class="level-item">July 2024</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></div></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">Tags</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/Deep-Learning/"><span class="tag">Deep Learning</span><span class="tag">8</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Machine-Learning/"><span class="tag">Machine Learning</span><span class="tag">14</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Reinforcement-learning/"><span class="tag">Reinforcement learning</span><span class="tag">1</span></a></div></div></div></div></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="https://s2.loli.net/2024/11/11/wIobSZOAEGchgVv.png" alt="yzd&#039;s Log Book" height="28"></a><p class="is-size-7"><span>&copy; 2024 yzd</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p><p class="is-size-7">用💖发电</p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/yzd11/"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script data-pjax src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script data-pjax src="/js/back_to_top.js" defer></script><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "This website uses cookies to improve your experience.",
+          dismiss: "Got it!",
+          allow: "Allow cookies",
+          deny: "Decline",
+          link: "Learn more",
+          policy: "Cookie Policy",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script type="text/javascript" id="MathJax-script" async>MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      },
+      chtml: {
+        matchFontHeight: false
+      }
+    };</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script><!--!--><script data-pjax src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script></body></html>

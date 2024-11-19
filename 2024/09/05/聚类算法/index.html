@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="referrer" content="no-referrer"><title>聚类算法 - yzd&#039;s Log Book</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="yzd&#039;s Log Book"><meta name="msapplication-TileImage" content="https://s2.loli.net/2024/11/11/wIobSZOAEGchgVv.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="yzd&#039;s Log Book"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="了解聚类算法"><meta property="og:type" content="blog"><meta property="og:title" content="聚类算法"><meta property="og:url" content="https://yzd11.github.io/2024/09/05/%E8%81%9A%E7%B1%BB%E7%AE%97%E6%B3%95/"><meta property="og:site_name" content="yzd&#039;s Log Book"><meta property="og:description" content="了解聚类算法"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1725412829969-2db3611a-fc00-42d4-9a5d-ae748aab46ee.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1725412965868-50ba6b8c-2170-416f-a225-a06309ec6f39.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1725413156540-a35c5226-8057-4b2d-95b0-cf253fff01d9.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1725413348615-9256f3cd-91a7-4783-b948-4bf8c96d645e.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1725439465603-90f54db4-f23a-4cd7-b94e-cb3442c1b972.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1725498342096-3b29a1d7-69b7-4d4b-9ce0-f0590e549863.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1725498763758-fe3bf4c3-54c3-42ed-ad7f-a03a8c63ef2d.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1725498855749-feefa713-ab16-4071-93e3-73c269a9a01d.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1725499682142-cea76b54-ea25-4b01-ae93-abd580e76059.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1725527220827-68f33f45-29ff-4095-b2d8-d3acf00a5467.png"><meta property="article:published_time" content="2024-09-05T11:43:12.000Z"><meta property="article:modified_time" content="2024-11-19T09:29:23.449Z"><meta property="article:author" content="yzd"><meta property="article:tag" content="Machine Learning"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1725412829969-2db3611a-fc00-42d4-9a5d-ae748aab46ee.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://yzd11.github.io/2024/09/05/%E8%81%9A%E7%B1%BB%E7%AE%97%E6%B3%95/"},"headline":"聚类算法","image":["https://cdn.nlark.com/yuque/0/2024/png/40370285/1725412829969-2db3611a-fc00-42d4-9a5d-ae748aab46ee.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1725412965868-50ba6b8c-2170-416f-a225-a06309ec6f39.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1725413156540-a35c5226-8057-4b2d-95b0-cf253fff01d9.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1725413348615-9256f3cd-91a7-4783-b948-4bf8c96d645e.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1725439465603-90f54db4-f23a-4cd7-b94e-cb3442c1b972.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1725498342096-3b29a1d7-69b7-4d4b-9ce0-f0590e549863.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1725498763758-fe3bf4c3-54c3-42ed-ad7f-a03a8c63ef2d.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1725498855749-feefa713-ab16-4071-93e3-73c269a9a01d.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1725499682142-cea76b54-ea25-4b01-ae93-abd580e76059.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1725527220827-68f33f45-29ff-4095-b2d8-d3acf00a5467.png"],"datePublished":"2024-09-05T11:43:12.000Z","dateModified":"2024-11-19T09:29:23.449Z","author":{"@type":"Person","name":"yzd"},"publisher":{"@type":"Organization","name":"yzd's Log Book","logo":{"@type":"ImageObject","url":"https://s2.loli.net/2024/11/11/wIobSZOAEGchgVv.png"}},"description":"了解聚类算法"}</script><link rel="canonical" href="https://yzd11.github.io/2024/09/05/%E8%81%9A%E7%B1%BB%E7%AE%97%E6%B3%95/"><link rel="icon" href="https://s2.loli.net/2024/11/11/wIobSZOAEGchgVv.png"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link data-pjax rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link data-pjax rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head><body class="is-3-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="https://s2.loli.net/2024/11/11/wIobSZOAEGchgVv.png" alt="yzd&#039;s Log Book" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">YZD&#039;S LOG BOOK</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/yzd11/"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2024-09-05T11:43:12.000Z" title="2024/9/5 19:43:12">2024-09-05</time></span><span class="level-item">Updated&nbsp;<time dateTime="2024-11-19T09:29:23.449Z" title="2024/11/19 17:29:23">2024-11-19</time></span><span class="level-item"><a class="link-muted" href="/categories/blog/">blog</a></span><span class="level-item">12 minutes read (About 1798 words)</span></div></div><h1 class="title is-3 is-size-4-mobile">聚类算法</h1><div class="content"><h2 id="FVGx5">什么是聚类</h2>
+
+
+
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1725412829969-2db3611a-fc00-42d4-9a5d-ae748aab46ee.png"></p>
+<p>我们之前的训练数据都是一个特征对应一个标签，但是对于无监督学习来讲，仅需要数据本身，不需要添加标签。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1725412965868-50ba6b8c-2170-416f-a225-a06309ec6f39.png"></p>
+<p>这种聚类算法可以被用于市场划分，新闻消息分组，$ DNA $检测，天文数据分析。</p>
+<h2 id="YflyT">k-means的直观理解</h2>
+
+
+<p>对于$ k-means $可以分为两步进行。</p>
+<p>第一步：</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1725413156540-a35c5226-8057-4b2d-95b0-cf253fff01d9.png"></p>
+<p>随机选择两个点作为簇质心，接着遍历每一个点，根据距离最近的质心，分别设置为不同的簇。</p>
+<p>第二步：</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1725413348615-9256f3cd-91a7-4783-b948-4bf8c96d645e.png"></p>
+<p>接着根据划分的点，计算他们的平均值，然后将之前的质心位置移动到新的平均值位置，重复第一步，最终直到计算平均值和质心的位置相同为止。</p>
+<h2 id="prE6i">k-means算法</h2>
+
+
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1725439465603-90f54db4-f23a-4cd7-b94e-cb3442c1b972.png"></p>
+<p>首先初始化$ k $个簇质心，接下来还是和之前的算法步骤相同，重复进行分配和移动质心的位置，最终使得质心保持不动。</p>
+<p>需要注意的是一种特殊情况，如果出现了其中一个质心没有被分配到任何数据，那么也就无法进行调整，对于这种情况通常是将这个簇删除，但是如果一定要保持$ k $个簇，也可以将簇质心重新随机分配。</p>
+<h2 id="HuriS">优化目标</h2>
+
+
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1725498342096-3b29a1d7-69b7-4d4b-9ce0-f0590e549863.png"></p>
+<p>我们首先定义几个变量</p>
+<p>$ c^{(i)} $：当前点被分配的簇的下标</p>
+<p>$ u_k $：簇的质心</p>
+<p>$ u_{c^{(i)}} $：当前点被分配的簇的质心</p>
+<p>根据这些变量我们可以得到这个失真代价函数：$ J\left(c^{(1)},…,c^{(m)},\mu_1,…,\mu_K\right)&#x3D;\frac1m\sum_{i&#x3D;1}^m\left|x^{(i)}-\mu_{c^{(i)}}\right|^2 $ </p>
+<p><strong><font style="color:rgb(0, 0, 0);">为什么迭代后误差逐渐减小：</font></strong></p>
+<p><font style="color:rgb(0, 0, 0);">对于</font>$ u_{c^{(i)}} $<font style="color:rgb(0, 0, 0);">而言，求导后，当</font>$ u_{c^{(i)}}&#x3D;\frac{\sum{x_i}}{m} $<font style="color:rgb(0, 0, 0);">时，代价函数最小，对应第二步；</font></p>
+<p><font style="color:rgb(0, 0, 0);">对于</font>$ x^{(i)} $<font style="color:rgb(0, 0, 0);">而言，求导后，当</font>$ x^{(i)}&#x3D;c^{(i)} $<font style="color:rgb(0, 0, 0);">时，代价函数最小，对应第一步。</font></p>
+<p><font style="color:rgb(0, 0, 0);">因此</font>$ k-means $<font style="color:rgb(0, 0, 0);">迭代能使误差逐渐减少直到不变</font></p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1725498763758-fe3bf4c3-54c3-42ed-ad7f-a03a8c63ef2d.png"></p>
+<p>在第一步中我们为每个点选择更近的那个簇质心，使得可以减少差值。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1725498855749-feefa713-ab16-4071-93e3-73c269a9a01d.png"></p>
+<p>在第二步中我们将簇质心移动到中间点的位置，使得可以减少差值。</p>
+<h2 id="y5Raq">初始化k-means</h2>
+
+
+<ul>
+<li>随机初始化</li>
+</ul>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1725499682142-cea76b54-ea25-4b01-ae93-abd580e76059.png"></p>
+<p>由于我们之前的初始化点都是完全随机的，不同的初始化点对于算法的收敛速度有很大的影响，因此我们可以通过多次初始化得到一个最好的初始化结果。</p>
+<p>第一步：选择$ k $个样本点作为初始化的簇质心。</p>
+<p>第二步：运行$ k-means $算法，得到每个点分配的簇质心并计算代价函数。</p>
+<p>第三步：通过多次循环，得到一个代价函数最小的值作为初始化的$ k-means $</p>
+<ul>
+<li>$ K-Means++ $</li>
+</ul>
+<p>$ K-Means++ $的对于初始化质心的优化策略也很简单，如下：</p>
+<p>$ a) $  从输入的数据点集合中随机选择一个点作为第一个聚类中心$ μ_1 $<br>$ b) $ 对于数据集中的每一个点$ x_i $，计算它与已选择的聚类中心中最近聚类中心的距离$ D(x_i)&#x3D;arg min||x_i-\mu_r||<em>2^2 r&#x3D;1,2,\ldots k</em>{selected} $</p>
+<p>$ c) $ 选择一个新的数据点作为新的聚类中心，选择的原则是：$ D(x) $较大的点，被选取作为聚类中心的概率较大<br>$ d) $ 重复$ b $和$ c $直到选择出$ k $个聚类质心<br>$ e) $ 利用这$ k $个质心来作为初始化质心去运行标准的$ K-Means $算法</p>
+<h2 id="UIzB9">选择聚类数量</h2>
+
+
+<ul>
+<li>肘部法则</li>
+</ul>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1725527220827-68f33f45-29ff-4095-b2d8-d3acf00a5467.png"></p>
+<p>我们可以画出关于$ k $的代价函数图像，然后选择一个最明显的拐点，由于和人的肘部很像，因此也被称为肘部法则，但是这种方法并不是非常好用，因为像右侧的图像中代价函数的下降并不是非常陡峭无法直接判断合适的$ k $值。</p>
+<ul>
+<li>轮廓系数法</li>
+</ul>
+<p><font style="color:rgb(0, 0, 0);">轮廓系数</font>$ （Silhouette Coefficient） $<font style="color:rgb(0, 0, 0);">结合了聚类的凝聚度</font>$ （Cohesion） $<font style="color:rgb(0, 0, 0);">和分离度</font>$ （Separation） $<font style="color:rgb(0, 0, 0);">，我们希望簇内更加聚合，簇间更加分散，用于评估聚类的效果。该值处于</font>$ -1\sim1 $<font style="color:rgb(0, 0, 0);">之间，值越大，表示聚类效果越好。具体计算方法如下：</font></p>
+<ol>
+<li><font style="color:rgb(0, 0, 0);">对于每个样本点</font>$ i $<font style="color:rgb(0, 0, 0);">，计算点</font>$ i $<font style="color:rgb(0, 0, 0);">与其同一个簇内的所有其他元素距离的平均值，记作</font>$ a(i) $<font style="color:rgb(0, 0, 0);">，用于量化簇内的凝聚度。</font></li>
+<li><font style="color:rgb(0, 0, 0);">选取</font>$ i $<font style="color:rgb(0, 0, 0);">外的一个簇</font>$ b $<font style="color:rgb(0, 0, 0);">，计算</font>$ i $<font style="color:rgb(0, 0, 0);">与</font>$ b $<font style="color:rgb(0, 0, 0);">中所有点的平均距离，遍历所有其他簇，找到最近的这个平均距离,记作</font>$ b(i) $<font style="color:rgb(0, 0, 0);">，即为</font>$ i $<font style="color:rgb(0, 0, 0);">的邻居类，用于量化簇之间分离度。</font></li>
+<li><font style="color:rgb(0, 0, 0);">对于样本点</font>$ i $<font style="color:rgb(0, 0, 0);">，轮廓系数</font>$ s(i) &#x3D; \frac{(b(i) – a(i))}{max&lt;!–swig￼0–&gt;} $</li>
+<li><font style="color:rgb(0, 0, 0);">计算所有</font>$ i $<font style="color:rgb(0, 0, 0);">的轮廓系数，求出平均值即为当前聚类的整体轮廓系数，度量数据聚类的紧密程度</font></li>
+</ol>
+<p><font style="color:rgb(0, 0, 0);">从上面的公式，不难发现若</font>$ s(i) $<font style="color:rgb(0, 0, 0);">小于</font>$ 0 $<font style="color:rgb(0, 0, 0);">，说明</font>$ i $<font style="color:rgb(0, 0, 0);">与其簇内元素的平均距离大于最近的其他簇，表示聚类效果不好。如果</font>$ a(i) $<font style="color:rgb(0, 0, 0);">趋于</font>$ 0 $<font style="color:rgb(0, 0, 0);">，或者</font>$ b(i) $<font style="color:rgb(0, 0, 0);">足够大，即</font>$ a(i)&lt;&lt;b(i) $<font style="color:rgb(0, 0, 0);">，那么</font>$ s(i) $<font style="color:rgb(0, 0, 0);">趋近与</font>$ 1 $<font style="color:rgb(0, 0, 0);">，说明聚类效果比较好。</font></p>
+<ul>
+<li>$ Calinski-Harabasz $<font style="color:rgb(0, 0, 0);">法</font></li>
+</ul>
+<p><font style="color:rgb(0, 0, 0);">                                                  </font>$ s(k)&#x3D;\frac{tr(B_k)}{tr(W_k)}\frac{m-k}{k-1} $</p>
+<p>　其中$ m $为训练集样本数，$ k $为类别数。$ B_k $为类别之间的协方差矩阵，$ W_k $为类别内部数据的协方差矩阵。$ tr $为矩阵的迹。</p>
+<p>$$ B_k&#x3D;\sum_{q&#x3D;1}^kn_q(c_q-c_e)(c_q-c_e)^T<br>  \newline  W_k&#x3D;\sum_{q&#x3D;1}^k\sum_{x\in C_q}(x-c_q)(x-c_q)^T $$          </p>
+<p>其中$ c_q $表示类$ q $的中心点，$ c_e $表示数据集的中心点，$ n_q $表示类$ q $中的数据的数目，$ C_q $表示类$ q $的数据集合。</p>
+<p>也就是说，类别内部数据的协方差越小越好，类别之间的协方差越大越好，这样的$ Calinski-Harabasz $分数会高。</p>
+</div><div class="article-licensing box"><div class="licensing-title"><p>聚类算法</p><p><a href="https://yzd11.github.io/2024/09/05/聚类算法/">https://yzd11.github.io/2024/09/05/聚类算法/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>Author</h6><p>yzd</p></div></div><div class="level-item is-narrow"><div><h6>Posted on</h6><p>2024-09-05</p></div></div><div class="level-item is-narrow"><div><h6>Updated on</h6><p>2024-11-19</p></div></div><div class="level-item is-narrow"><div><h6>Licensed under</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="icons" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="icon fab fa-creative-commons-by"></i></a><a class="icons" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="icon fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/Machine-Learning/">Machine Learning</a></div><!--!--></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2024/09/05/%E6%A8%A1%E5%9E%8B%E9%80%89%E6%8B%A9%E4%B8%8E%E8%AF%84%E4%BC%B0/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">模型选择与评估</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2024/08/29/%E5%86%B3%E7%AD%96%E6%A0%91/"><span class="level-item">决策树</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><!--!--></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1 is-sticky"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="https://s2.loli.net/2024/11/11/Ryr92nIiLw3mVQB.jpg" alt="yzd"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">yzd</p><p class="is-size-6 is-block">Computer Science</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>郑州</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">23</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Category</p><a href="/categories"><p class="title">1</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">3</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/yzd11/" target="_blank" rel="me noopener">Follow</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Github" href="https://github.com/yzd11/"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="语雀" href="https://www.yuque.com/yzd11/myblog/"><i class="fa-solid fa-feather"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="CSDN" href="https://blog.csdn.net/yzd111/"><i class="fa-solid fa-c"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Blog" href="https://yzd11.github.io/"><i class="fa-brands fa-blogger-b"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">Catalogue</h3><ul class="menu-list"><li><a class="level is-mobile" href="#FVGx5"><span class="level-left"><span class="level-item">1</span><span class="level-item">什么是聚类</span></span></a></li><li><a class="level is-mobile" href="#YflyT"><span class="level-left"><span class="level-item">2</span><span class="level-item">k-means的直观理解</span></span></a></li><li><a class="level is-mobile" href="#prE6i"><span class="level-left"><span class="level-item">3</span><span class="level-item">k-means算法</span></span></a></li><li><a class="level is-mobile" href="#HuriS"><span class="level-left"><span class="level-item">4</span><span class="level-item">优化目标</span></span></a></li><li><a class="level is-mobile" href="#y5Raq"><span class="level-left"><span class="level-item">5</span><span class="level-item">初始化k-means</span></span></a></li><li><a class="level is-mobile" href="#UIzB9"><span class="level-left"><span class="level-item">6</span><span class="level-item">选择聚类数量</span></span></a></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/blog/"><span class="level-start"><span class="level-item">blog</span></span><span class="level-end"><span class="level-item tag">23</span></span></a></li></ul></div></div></div><div class="column-right-shadow is-hidden-widescreen"></div></div><div class="column column-right is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only order-3"><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-11-19T08:27:32.000Z">2024-11-19</time></p><p class="title"><a href="/2024/11/19/Self-Attention/">Self-Attention</a></p><p class="categories"><a href="/categories/blog/">blog</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-11-08T14:27:09.000Z">2024-11-08</time></p><p class="title"><a href="/2024/11/08/Transformer/">Transformer</a></p><p class="categories"><a href="/categories/blog/">blog</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-10-24T13:28:27.000Z">2024-10-24</time></p><p class="title"><a href="/2024/10/24/RNN/">RNN</a></p><p class="categories"><a href="/categories/blog/">blog</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-10-19T14:18:19.000Z">2024-10-19</time></p><p class="title"><a href="/2024/10/19/%E8%AE%AD%E7%BB%83%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">训练神经网络</a></p><p class="categories"><a href="/categories/blog/">blog</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-10-19T13:23:46.000Z">2024-10-19</time></p><p class="title"><a href="/2024/10/19/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">神经网络</a></p><p class="categories"><a href="/categories/blog/">blog</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2024/11/"><span class="level-start"><span class="level-item">November 2024</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/10/"><span class="level-start"><span class="level-item">October 2024</span></span><span class="level-end"><span class="level-item tag">10</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/09/"><span class="level-start"><span class="level-item">September 2024</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/08/"><span class="level-start"><span class="level-item">August 2024</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/07/"><span class="level-start"><span class="level-item">July 2024</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></div></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">Tags</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/Deep-Learning/"><span class="tag">Deep Learning</span><span class="tag">8</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Machine-Learning/"><span class="tag">Machine Learning</span><span class="tag">14</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Reinforcement-learning/"><span class="tag">Reinforcement learning</span><span class="tag">1</span></a></div></div></div></div></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="https://s2.loli.net/2024/11/11/wIobSZOAEGchgVv.png" alt="yzd&#039;s Log Book" height="28"></a><p class="is-size-7"><span>&copy; 2024 yzd</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p><p class="is-size-7">用💖发电</p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/yzd11/"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script data-pjax src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script data-pjax src="/js/back_to_top.js" defer></script><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "This website uses cookies to improve your experience.",
+          dismiss: "Got it!",
+          allow: "Allow cookies",
+          deny: "Decline",
+          link: "Learn more",
+          policy: "Cookie Policy",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script type="text/javascript" id="MathJax-script" async>MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      },
+      chtml: {
+        matchFontHeight: false
+      }
+    };</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script><!--!--><script data-pjax src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script></body></html>

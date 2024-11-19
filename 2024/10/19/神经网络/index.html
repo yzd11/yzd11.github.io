@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="referrer" content="no-referrer"><title>神经网络 - yzd&#039;s Log Book</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="yzd&#039;s Log Book"><meta name="msapplication-TileImage" content="https://s2.loli.net/2024/11/11/wIobSZOAEGchgVv.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="yzd&#039;s Log Book"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="了解简单的神经网络"><meta property="og:type" content="blog"><meta property="og:title" content="神经网络"><meta property="og:url" content="https://yzd11.github.io/2024/10/19/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"><meta property="og:site_name" content="yzd&#039;s Log Book"><meta property="og:description" content="了解简单的神经网络"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1722242257625-e2f82895-f1a0-4f84-a43a-d621f5b435fe.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1722242621190-a72dcc70-dcfe-4f4d-af1f-e18cd3291345.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1722249269243-5c688f7a-7784-482e-a938-b15d75199802.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1722249538421-d27a9dfd-a6af-4363-8e98-f5e15cd93dbb.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1722250219985-45fb08ea-f3d7-4cb7-bd30-3592b98a4cb1.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1722250887396-4cdf7413-5771-4da5-bbaa-6d8aa5069acb.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1722251509044-17506475-96d8-43d5-ad88-a2b9071d83d4.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1723017582358-91c249a8-8496-486d-9e12-41c79275ce8f.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1723018947523-626e7e37-a33c-4411-8eec-3dc6d5b93d11.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1723019324194-02e926ec-862e-4ef9-b2f8-588b249744dd.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1723020029387-4499ee98-3444-45fe-bb36-eaa7fb3ea467.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1723021305631-29a235aa-a51b-453d-b4cb-aab45f417925.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1723107620050-777b4cb1-476b-4e87-b705-77ee48028472.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1723109324375-d4c44b64-01df-4433-947c-ba777a4ce924.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1723109992747-692660f6-d5ce-4c49-b3e0-61409f4c195a.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1723121395990-5e43996f-a662-49e5-b065-94651ecbe9dd.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1723122039778-52decf09-0e9d-4ca7-a56e-530edbe6e638.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1723799756880-bb61012d-8ff9-4e11-bbd4-b6a3300f2496.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1723799618830-1ef7b2e2-af30-4249-a62f-901f46366404.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1723800161864-6fd4f478-259b-4e51-bb36-391f4ed495dc.png"><meta property="article:published_time" content="2024-10-19T13:23:46.000Z"><meta property="article:modified_time" content="2024-11-19T09:34:03.651Z"><meta property="article:author" content="yzd"><meta property="article:tag" content="Machine Learning"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1722242257625-e2f82895-f1a0-4f84-a43a-d621f5b435fe.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://yzd11.github.io/2024/10/19/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"},"headline":"神经网络","image":["https://cdn.nlark.com/yuque/0/2024/png/40370285/1722242257625-e2f82895-f1a0-4f84-a43a-d621f5b435fe.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1722242621190-a72dcc70-dcfe-4f4d-af1f-e18cd3291345.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1722249269243-5c688f7a-7784-482e-a938-b15d75199802.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1722249538421-d27a9dfd-a6af-4363-8e98-f5e15cd93dbb.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1722250219985-45fb08ea-f3d7-4cb7-bd30-3592b98a4cb1.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1722250887396-4cdf7413-5771-4da5-bbaa-6d8aa5069acb.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1722251509044-17506475-96d8-43d5-ad88-a2b9071d83d4.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1723017582358-91c249a8-8496-486d-9e12-41c79275ce8f.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1723018947523-626e7e37-a33c-4411-8eec-3dc6d5b93d11.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1723019324194-02e926ec-862e-4ef9-b2f8-588b249744dd.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1723020029387-4499ee98-3444-45fe-bb36-eaa7fb3ea467.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1723021305631-29a235aa-a51b-453d-b4cb-aab45f417925.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1723107620050-777b4cb1-476b-4e87-b705-77ee48028472.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1723109324375-d4c44b64-01df-4433-947c-ba777a4ce924.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1723109992747-692660f6-d5ce-4c49-b3e0-61409f4c195a.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1723121395990-5e43996f-a662-49e5-b065-94651ecbe9dd.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1723122039778-52decf09-0e9d-4ca7-a56e-530edbe6e638.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1723799756880-bb61012d-8ff9-4e11-bbd4-b6a3300f2496.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1723799618830-1ef7b2e2-af30-4249-a62f-901f46366404.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1723800161864-6fd4f478-259b-4e51-bb36-391f4ed495dc.png"],"datePublished":"2024-10-19T13:23:46.000Z","dateModified":"2024-11-19T09:34:03.651Z","author":{"@type":"Person","name":"yzd"},"publisher":{"@type":"Organization","name":"yzd's Log Book","logo":{"@type":"ImageObject","url":"https://s2.loli.net/2024/11/11/wIobSZOAEGchgVv.png"}},"description":"了解简单的神经网络"}</script><link rel="canonical" href="https://yzd11.github.io/2024/10/19/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"><link rel="icon" href="https://s2.loli.net/2024/11/11/wIobSZOAEGchgVv.png"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link data-pjax rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link data-pjax rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head><body class="is-3-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="https://s2.loli.net/2024/11/11/wIobSZOAEGchgVv.png" alt="yzd&#039;s Log Book" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">YZD&#039;S LOG BOOK</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/yzd11/"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2024-10-19T13:23:46.000Z" title="2024/10/19 21:23:46">2024-10-19</time></span><span class="level-item">Updated&nbsp;<time dateTime="2024-11-19T09:34:03.651Z" title="2024/11/19 17:34:03">2024-11-19</time></span><span class="level-item"><a class="link-muted" href="/categories/blog/">blog</a></span><span class="level-item">17 minutes read (About 2509 words)</span></div></div><h1 class="title is-3 is-size-4-mobile">神经网络</h1><div class="content"><h2 id="l3aVC">引入</h2>
+
+
+
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1722242257625-e2f82895-f1a0-4f84-a43a-d621f5b435fe.png"></p>
+<p>我们使用一个需求预测的例子引入神经网络，再输入层中输入四个特征，接着通过激活函数在隐藏层得到三个激活值。最后将这三个输出作为输出层的输入通过逻辑回归得到一个概率预测。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1722242621190-a72dcc70-dcfe-4f4d-af1f-e18cd3291345.png"></p>
+<p>我们可以有多个隐藏层，同时每个隐藏层中的具体特征选择不需要我们自己考虑，但是总共的层数和每层的神经元数量需要我们选择。</p>
+<h2 id="VyJM8">图像感知</h2>
+
+
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1722249269243-5c688f7a-7784-482e-a938-b15d75199802.png"></p>
+<p>在第一个隐藏层中我们选择一些小的线条，在第二个中选择了眼睛或鼻子等器官，在第三个中选择了整个脸部，最终得到一个预测的可能值。对于这些隐藏层中神经元的内容我们没有指定，而是神经网络根据数据集自己训练的结果。</p>
+<h2 id="AiN8E">神经网络中的网络层</h2>
+
+
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1722249538421-d27a9dfd-a6af-4363-8e98-f5e15cd93dbb.png"></p>
+<p>我们将输入层成为第$ 0 $层，接着是第$ 1 $层，第$ 2 $层，第$ n $层，我们放大看第$ 1 $层。</p>
+<p>为了区分，我们将上标作为层数标志，例如$ \vec{a}^{[1]} $表示第$ 1 $层的数据。使用下标表示第几个神经元，例如$ \vec{w}_{1}^{[1]} $表示第$ 1 $层中第一个神经元的$ \vec{w} $向量。</p>
+<p>我们的输入向量在每个神经元中都进行一个小的逻辑回归运算得到一个概率值$ a $，结合在一起得到了一个输出向量$ \vec{a} $。同时这个向量也可以作为下一层的输入向量。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1722250219985-45fb08ea-f3d7-4cb7-bd30-3592b98a4cb1.png"></p>
+<p>最终我们通过输出层的一个神经元的逻辑回归运算得到一个输出值$ 0.84 $，我们可以设置一个阈值，如果大于这个值就为$ 1 $，否则为$ 0 $。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1722250887396-4cdf7413-5771-4da5-bbaa-6d8aa5069acb.png"></p>
+<p>我们将上面的这些抽象为一个表达式$ a_{j}^{[l]}&#x3D;g(\overrightarrow{w}<em>{j}^{[l]}\bullet\overrightarrow{a}^{[l-1]}+b</em>{j}^{[l]}) $，其中$ a $为激活值，$ g $为激活函数$ sigmoid $，$ l $为层数，$ j $代表第几个神经元，最后，$ w,b $表示权重和偏置。</p>
+<h2 id="X8ETU">前向传播</h2>
+
+
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1722251509044-17506475-96d8-43d5-ad88-a2b9071d83d4.png"></p>
+<p>图中从左向右依次计算激活值的过程被称为前向传播。</p>
+<h2 id="OhQT7">优化算法</h2>
+
+
+<p>待优化参数$ w $，损失函数$ loss $，学习率$ lr $，每次迭代一个$ batch $，$ t $表示当前$ batch $迭代的总次数：</p>
+<ol>
+<li>计算$ t $时刻损失函数关于当前参数的梯度$ g_{t}&#x3D;\nabla loss&#x3D;\frac{\partial loss}{\partial(w_{t})} $</li>
+<li>计算$ t $时刻一阶动量$ m_t $和二阶动量$ V_t $</li>
+<li>计算$ t $时刻下降梯度：$ \eta_t&#x3D;lr\cdot m_t&#x2F;\sqrt{V_t} $</li>
+<li>计算$ t+1 $时刻参数：$ w_{t+1}&#x3D;w_t-\eta_t&#x3D;w_t-lr\cdot m_t&#x2F;\sqrt{V_t} $</li>
+</ol>
+<p>一阶动量：与梯度相关的函数</p>
+<p>二阶动量：与梯度平方相关的函数</p>
+<ul>
+<li>SGD（随机梯度下降）</li>
+</ul>
+<p>$ \begin{aligned} &amp; m_{t}&#x3D;g_{t}\quad V_{t}&#x3D;1 &amp; \  &amp; \eta_{\mathrm{t}}&#x3D;lr\cdot m_{\mathrm{t}}&#x2F;\sqrt{V_t}&#x3D;lr\cdot g_{t} &amp; \  &amp; w_{t+1}&#x3D;w_{t}-\eta_{t} &amp; \  &amp;   &#x3D;w_{t}-lr\cdot m_{t}&#x2F;\sqrt{V_t}&#x3D;w_{t}-lr\cdot g_{t}\end{aligned}\boxed{w_{t+1}&#x3D;w_{t}-lr*\frac{\partial loss}{\partial w_{t}}} $</p>
+<ul>
+<li>SGDM（含momentum的SGD），在SGD的基础上增加一阶动量</li>
+</ul>
+<p>$ m_t&#x3D;\beta\cdot m_{t-1}+(1-\beta)\cdot g_t \quad V_t&#x3D;1 $</p>
+<p>$ \begin{aligned}<br>\eta_{t}&#x3D;lr\cdot m_{t}&#x2F;\sqrt{V_{t}}&#x3D;lr\cdot m_{t} \ &#x3D;lr\cdot(\beta\cdot m_{t-1}+(1-\beta)\cdot g_{t})<br>\end{aligned} $  </p>
+<p>$ \begin{aligned}w_{t+1}&amp;&#x3D;w_\mathrm{t}-\eta_\mathrm{t}\&amp;&#x3D;w_\mathrm{t}-lr\cdot(\beta\cdot m_\mathrm{t-1}+(1-\beta)\cdot g_\mathrm{t})\end{aligned} $</p>
+<ul>
+<li>Adagrad，在SGD的基础上增加二阶动量</li>
+</ul>
+<p>$ m_{t}&#x3D;g_{t}\quad V_{t}&#x3D;\sum_{\tau&#x3D;1}^{t}g_{\tau}^{2} $</p>
+<p>$ \begin{aligned}&amp;\eta_{\mathrm{t}}&#x3D;lr\cdot m_{t}&#x2F;\left(\sqrt{V_{t}}\right)\&amp;&#x3D; lr\cdot g_{t}&#x2F;(\sqrt{\sum_{\tau&#x3D;1}^{t}g_{\tau}^{2}})\end{aligned} $</p>
+<p>$ \begin{aligned}w_{t+1}&amp;&#x3D;w_{t}-\eta_{t}\&amp;&#x3D;w_{t}-lr\cdot g_{t}&#x2F;(\sqrt{\sum_{t&#x3D;1}^{t}g_{\tau}^{2}})\end{aligned} $</p>
+<ul>
+<li>RMSProp，在SGD的基础上增加了二阶动量</li>
+</ul>
+<p>$ m_t&#x3D;g_t\quad V_t&#x3D;\beta\cdot V_{t-1}+(1-\beta)\cdot g_t^2 $</p>
+<p>$ \begin{aligned}\eta_{t}&amp;&#x3D;lr\cdot m_{t}&#x2F;\sqrt{V_{t}}\&amp;&#x3D;lr\cdot g_t&#x2F;(\sqrt{\beta\cdot V_{t-1}+(1-\beta)\cdot g_t^2})\end{aligned} $</p>
+<p>$ \begin{aligned}w_{t+1}&amp; &#x3D;w_{t}-\eta_{t} \&amp;&#x3D;w_t-lr\cdot g_t&#x2F;(\sqrt{\beta\cdot V_{t-1}+(1-\beta)\cdot g_t^2})\end{aligned} $  </p>
+<ul>
+<li>Adam，同时结合SGDM一阶动量和RMSProp二阶动量</li>
+</ul>
+<p>$ \begin{aligned}&amp;m_t&#x3D;\beta_1\cdot m_{t-1}+(1-\beta_1)\cdot g_t\&amp;\text{修正一阶动量的偏差:}\widehat{m_t}&#x3D;\frac{m_t}{1-\beta_1^t}\end{aligned} $</p>
+<p>$ V_t&#x3D;\beta_2\cdot V_{step-1}+(1-\beta_2)\cdot g_t^2\\text{修正二阶动量的偏差:}\widehat{V_t}&#x3D;\frac{V_t}{1-{\beta_2}^t} $</p>
+<p>$ \begin{aligned}\eta_{t}&amp;&#x3D;lr\cdot\widehat{m}<em>{t}&#x2F;\sqrt{\widehat{V</em>{t}}}\&amp;&#x3D;lr\cdot\frac{m_{t}}{1-\beta_{1}^{t}} &#x2F; \sqrt{\frac{V_{t}}{1-\beta_{2}^{t}}}\end{aligned} $</p>
+<p>$ \begin{aligned}w_{t+1}&amp;&#x3D;w_t-\eta_t\&amp;&#x3D;w_t-lr\cdot\frac{m_t}{1-{\beta_1}^t} &#x2F; \sqrt{\frac{V_t}{1-{\beta_2}^t}}\end{aligned} $</p>
+<h2 id="XC9wn">激活函数</h2>
+
+
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1723017582358-91c249a8-8496-486d-9e12-41c79275ce8f.png"></p>
+<p>我们可以看到除了我们已经学习过的线性激活函数和$ sigmod $函数，这里还有一种新的激活函数-$ ReLU $函数，也就是$ g(z)&#x3D;max(0,z) $，适用于输出都是非负数的情况。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1723018947523-626e7e37-a33c-4411-8eec-3dc6d5b93d11.png"></p>
+<p>我们现在要学习一下为什么需要非线性的激活函数，如果我们仅仅只是使用线性的激活函数，那么无论我们的隐藏层中有多少的神经元我们也无法拟合一个非线性的目标函数。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1723019324194-02e926ec-862e-4ef9-b2f8-588b249744dd.png"></p>
+<p>不要在隐藏层中使用线性激活函数，这样的话即使我们在输出层中使用$ sigmod $函数，我们也仅仅是实现了一个逻辑回归函数，因此我们最好是使用$ ReLU $函数。</p>
+<h2 id="U0Lan">多分类问题</h2>
+
+
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1723020029387-4499ee98-3444-45fe-bb36-eaa7fb3ea467.png"></p>
+<p>我们不再仅仅预测一个二分类的问题，而是对多分类问题进行预测，我们使用$ Softmax $函数对线性运算的结果进行处理，使其成为一些列合为$ 1 $的值。其中的$ Softmax $为$ a_{j}&#x3D;\frac{e^{z_{j}}}{\sum_{k&#x3D;1}^{N}e^{z_{k}}}&#x3D;\mathrm{P(y&#x3D;j|\vec{x})} $</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1723021305631-29a235aa-a51b-453d-b4cb-aab45f417925.png"></p>
+<p>类比$ sigmod $的损失函数，我们可以得到$ Softmax $函数的损失函数为$ loss&#x3D;-log{a_j} \quad if ~ y&#x3D;j $</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1723107620050-777b4cb1-476b-4e87-b705-77ee48028472.png"></p>
+<p>由于$ Softmax $函数中出现了上溢和下溢的问题，我们需要使用指数归一化或者$ LSE $函数对其进行优化，因此，我们可以使用$ from_logits&#x3D;True $对其进行操作，使得$ Softmax $操作和交叉熵的操作放在一起进行并使用$ LSE $避免溢出问题。<br><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1723109324375-d4c44b64-01df-4433-947c-ba777a4ce924.png"></p>
+<p>同时由于我们在输出层不再进行$ Softmax $操作，因此我们最后的结果依然是具体的数值而不是概率值，因此需要在最后的结果预测时经过$ Softmax $的计算。</p>
+<p>具体分析参照：</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/yjw123456/article/details/121869249">一文弄懂LogSumExp技巧-CSDN博客</a></p>
+<p>关于$ Softmax $函数的由来参照:</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/yangwohenmai1/article/details/95936462">softmax函数名字的由来(代数&amp;几何原理)——softmax前世今生系列(2)_softmax的由来-CSDN博客</a></p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1723109992747-692660f6-d5ce-4c49-b3e0-61409f4c195a.png"></p>
+<p>多标签问题和多分类问题不同，多标签问题不具有排他性，可以既是car，又是bus，因此可以使用$ sigmod $激活函数，但是多分类问题时稀疏的，仅可以具有一种性质，采用$ Softmax $。</p>
+<h2 id="ySInJ">高级优化方法</h2>
+
+
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1723121395990-5e43996f-a662-49e5-b065-94651ecbe9dd.png"></p>
+<p>我们可以看到Adam优化器的算法比我们之前的原始梯度下降算法要优秀，可以根据学习率的过大或过小自动调整。</p>
+<h2 id="N5XNz">卷积神经网络</h2>
+
+
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1723122039778-52decf09-0e9d-4ca7-a56e-530edbe6e638.png"></p>
+<p>我们可以看到，卷积神经网络和之前学习的全连接网络的区别，我们可以调整每个卷积层的神经元的窗口大小和神经元个数。</p>
+<h2 id="GTTaw">计算图</h2>
+
+
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1723799756880-bb61012d-8ff9-4e11-bbd4-b6a3300f2496.png"></p>
+<p>对于自动求导，我们采用了三种方式，分别是符号求导，数值求导和计算图。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1723799618830-1ef7b2e2-af30-4249-a62f-901f46366404.png"></p>
+<p>我们在这里采用了计算图的方式来进行自动求导，使用一个有向无环图进行求导。分为两步，分别是前向传播和反向传播。前向传播中我们计算数值，实际上就是为反向传播的求导过程准备数值。如图中，$ \frac{\partial z}{\partial b}&#x3D;2b $我们就用到了前向传播中的$ b $。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1723800161864-6fd4f478-259b-4e51-bb36-391f4ed495dc.png"></p>
+<p>反向累积中我们无论时正向传播还是反向传播，我们需要的计算都是相同的，同时由于需要保存中间变量，需要的内存会是$ O(n) $，但是对于正向累计来讲，由于每次计算一个导数都需要遍历后面的节点，因此它的时间复杂度远远大于反向累积，同时由于它不需要存储中间变量，它的空间复杂度很低。</p>
+</div><div class="article-licensing box"><div class="licensing-title"><p>神经网络</p><p><a href="https://yzd11.github.io/2024/10/19/神经网络/">https://yzd11.github.io/2024/10/19/神经网络/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>Author</h6><p>yzd</p></div></div><div class="level-item is-narrow"><div><h6>Posted on</h6><p>2024-10-19</p></div></div><div class="level-item is-narrow"><div><h6>Updated on</h6><p>2024-11-19</p></div></div><div class="level-item is-narrow"><div><h6>Licensed under</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="icons" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="icon fab fa-creative-commons-by"></i></a><a class="icons" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="icon fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/Machine-Learning/">Machine Learning</a></div><!--!--></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2024/10/19/%E8%AE%AD%E7%BB%83%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">训练神经网络</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2024/10/14/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"><span class="level-item">卷积神经网络</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><!--!--></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1 is-sticky"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="https://s2.loli.net/2024/11/11/Ryr92nIiLw3mVQB.jpg" alt="yzd"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">yzd</p><p class="is-size-6 is-block">Computer Science</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>郑州</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">23</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Category</p><a href="/categories"><p class="title">1</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">3</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/yzd11/" target="_blank" rel="me noopener">Follow</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Github" href="https://github.com/yzd11/"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="语雀" href="https://www.yuque.com/yzd11/myblog/"><i class="fa-solid fa-feather"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="CSDN" href="https://blog.csdn.net/yzd111/"><i class="fa-solid fa-c"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Blog" href="https://yzd11.github.io/"><i class="fa-brands fa-blogger-b"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">Catalogue</h3><ul class="menu-list"><li><a class="level is-mobile" href="#l3aVC"><span class="level-left"><span class="level-item">1</span><span class="level-item">引入</span></span></a></li><li><a class="level is-mobile" href="#VyJM8"><span class="level-left"><span class="level-item">2</span><span class="level-item">图像感知</span></span></a></li><li><a class="level is-mobile" href="#AiN8E"><span class="level-left"><span class="level-item">3</span><span class="level-item">神经网络中的网络层</span></span></a></li><li><a class="level is-mobile" href="#X8ETU"><span class="level-left"><span class="level-item">4</span><span class="level-item">前向传播</span></span></a></li><li><a class="level is-mobile" href="#OhQT7"><span class="level-left"><span class="level-item">5</span><span class="level-item">优化算法</span></span></a></li><li><a class="level is-mobile" href="#XC9wn"><span class="level-left"><span class="level-item">6</span><span class="level-item">激活函数</span></span></a></li><li><a class="level is-mobile" href="#U0Lan"><span class="level-left"><span class="level-item">7</span><span class="level-item">多分类问题</span></span></a></li><li><a class="level is-mobile" href="#ySInJ"><span class="level-left"><span class="level-item">8</span><span class="level-item">高级优化方法</span></span></a></li><li><a class="level is-mobile" href="#N5XNz"><span class="level-left"><span class="level-item">9</span><span class="level-item">卷积神经网络</span></span></a></li><li><a class="level is-mobile" href="#GTTaw"><span class="level-left"><span class="level-item">10</span><span class="level-item">计算图</span></span></a></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/blog/"><span class="level-start"><span class="level-item">blog</span></span><span class="level-end"><span class="level-item tag">23</span></span></a></li></ul></div></div></div><div class="column-right-shadow is-hidden-widescreen"></div></div><div class="column column-right is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only order-3"><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-11-19T08:27:32.000Z">2024-11-19</time></p><p class="title"><a href="/2024/11/19/Self-Attention/">Self-Attention</a></p><p class="categories"><a href="/categories/blog/">blog</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-11-08T14:27:09.000Z">2024-11-08</time></p><p class="title"><a href="/2024/11/08/Transformer/">Transformer</a></p><p class="categories"><a href="/categories/blog/">blog</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-10-24T13:28:27.000Z">2024-10-24</time></p><p class="title"><a href="/2024/10/24/RNN/">RNN</a></p><p class="categories"><a href="/categories/blog/">blog</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-10-19T14:18:19.000Z">2024-10-19</time></p><p class="title"><a href="/2024/10/19/%E8%AE%AD%E7%BB%83%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">训练神经网络</a></p><p class="categories"><a href="/categories/blog/">blog</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-10-19T13:23:46.000Z">2024-10-19</time></p><p class="title"><a href="/2024/10/19/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">神经网络</a></p><p class="categories"><a href="/categories/blog/">blog</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2024/11/"><span class="level-start"><span class="level-item">November 2024</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/10/"><span class="level-start"><span class="level-item">October 2024</span></span><span class="level-end"><span class="level-item tag">10</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/09/"><span class="level-start"><span class="level-item">September 2024</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/08/"><span class="level-start"><span class="level-item">August 2024</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/07/"><span class="level-start"><span class="level-item">July 2024</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></div></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">Tags</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/Deep-Learning/"><span class="tag">Deep Learning</span><span class="tag">8</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Machine-Learning/"><span class="tag">Machine Learning</span><span class="tag">14</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Reinforcement-learning/"><span class="tag">Reinforcement learning</span><span class="tag">1</span></a></div></div></div></div></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="https://s2.loli.net/2024/11/11/wIobSZOAEGchgVv.png" alt="yzd&#039;s Log Book" height="28"></a><p class="is-size-7"><span>&copy; 2024 yzd</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p><p class="is-size-7">用💖发电</p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/yzd11/"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script data-pjax src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script data-pjax src="/js/back_to_top.js" defer></script><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "This website uses cookies to improve your experience.",
+          dismiss: "Got it!",
+          allow: "Allow cookies",
+          deny: "Decline",
+          link: "Learn more",
+          policy: "Cookie Policy",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script type="text/javascript" id="MathJax-script" async>MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      },
+      chtml: {
+        matchFontHeight: false
+      }
+    };</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script><!--!--><script data-pjax src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script></body></html>

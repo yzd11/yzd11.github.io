@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="referrer" content="no-referrer"><title>推荐系统 - yzd&#039;s Log Book</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="yzd&#039;s Log Book"><meta name="msapplication-TileImage" content="https://s2.loli.net/2024/11/11/wIobSZOAEGchgVv.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="yzd&#039;s Log Book"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="了解简单的推荐系统"><meta property="og:type" content="blog"><meta property="og:title" content="推荐系统"><meta property="og:url" content="https://yzd11.github.io/2024/09/10/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/"><meta property="og:site_name" content="yzd&#039;s Log Book"><meta property="og:description" content="了解简单的推荐系统"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1725878076162-33f96ebc-ca0a-4dfc-9f44-ffafb593d31f.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1725878289200-615b1075-3d80-4737-8e33-98985df70d58.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1725879353125-03f3f9ca-39e1-48bf-9d64-94e6a8bc064d.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1725881821862-82ece18d-3df0-4c8c-8cb5-060759a2958f.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1725881969005-d355f68a-ca18-46e8-a9ef-74f5b548a47d.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1725882499447-c3a627af-f5be-4798-8ac8-79d00e232ea6.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1725882583136-b3dd6301-8bf2-4732-9193-852543b9786e.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1725884205941-a67bb8ab-a6a1-4c5f-8bf7-f96f5624e3b1.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1725884789070-11c2d1a1-7570-4983-8003-be7341252452.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1725884931351-ef9223b9-7997-4907-b990-c0094548b14b.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1725885220021-08ce2995-4f87-44e1-9f86-e9ea85a06491.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1725886858448-dc73d0b6-b1d1-41c2-b37a-a78f7a662f29.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1725887330179-d76f67f7-4657-4e35-9f1f-aa2fab6b6ab6.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1725890922756-66dd9c7d-e1d5-48f3-a7a6-a9da39511682.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1725891343916-320e85b6-b6db-48ad-a3ff-c1bb7f2d6bb5.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1725891750058-301244c4-9245-4766-8a79-785848fa4da6.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1725935689547-8f54b1be-6645-4b61-ba26-9112a3dbe94f.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1725935939290-b825c8e8-b2b8-4ee2-9d8c-06bacccd7bb3.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1725936091823-961390d3-1d00-4691-bfc6-965467e3ecd9.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1725937982501-323410dc-a591-4171-a7b7-46c9b80c4589.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1725938095823-92d7037c-d153-45b0-b01d-0f95c4f1aba7.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1725938256152-4cfe5567-29ff-4907-9a9e-d9a34db21266.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1725939901725-93d6d82c-2369-4ef7-aae8-2113b543c180.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1725940030755-6285cd8c-0b95-499e-831f-912a3a40481e.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1725940228790-ea506be2-567b-4aeb-9700-324f9d3e8451.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1725940316850-a4df9a91-4bfa-47ed-ac3d-55eba70a6828.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1725969906603-52dbb4c4-043b-40b8-a3f1-a73d4bbda57a.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1725972171244-5c3ee2e9-df29-4f56-b145-fd9c1a3df87f.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1725972512973-b9ad168c-d76d-41db-ab3e-bc91b10bbd6c.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1725974710530-85dee3ef-c88e-43a8-9bcd-109b92eb2168.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1725974840740-b1cc5219-2e35-4709-b5db-62ca5ce7e35d.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1725974919755-e5a2ded1-4d68-4b2f-8c62-adf55d54eb2d.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1725975008196-66dd52ac-a05e-41ff-b23c-6abe394ec8a2.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1725975349490-e4e80c6e-708a-43a5-9336-8e9e6b561c35.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1725975531687-9fd53e37-a2af-4dc0-82ea-b0ceafc9df91.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1725976200966-2f85bacb-9c0c-4ff3-acd0-bc0302b7b225.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1725976366879-68909f4e-efaa-4a7a-90e2-9b712ab8cc6f.png"><meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1725977097046-5cf3b6e2-4a89-4b4a-b346-0b6210a4f221.png"><meta property="article:published_time" content="2024-09-10T14:06:10.000Z"><meta property="article:modified_time" content="2024-11-19T09:37:00.793Z"><meta property="article:author" content="yzd"><meta property="article:tag" content="Machine Learning"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://cdn.nlark.com/yuque/0/2024/png/40370285/1725878076162-33f96ebc-ca0a-4dfc-9f44-ffafb593d31f.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://yzd11.github.io/2024/09/10/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/"},"headline":"推荐系统","image":["https://cdn.nlark.com/yuque/0/2024/png/40370285/1725878076162-33f96ebc-ca0a-4dfc-9f44-ffafb593d31f.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1725878289200-615b1075-3d80-4737-8e33-98985df70d58.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1725879353125-03f3f9ca-39e1-48bf-9d64-94e6a8bc064d.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1725881821862-82ece18d-3df0-4c8c-8cb5-060759a2958f.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1725881969005-d355f68a-ca18-46e8-a9ef-74f5b548a47d.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1725882499447-c3a627af-f5be-4798-8ac8-79d00e232ea6.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1725882583136-b3dd6301-8bf2-4732-9193-852543b9786e.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1725884205941-a67bb8ab-a6a1-4c5f-8bf7-f96f5624e3b1.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1725884789070-11c2d1a1-7570-4983-8003-be7341252452.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1725884931351-ef9223b9-7997-4907-b990-c0094548b14b.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1725885220021-08ce2995-4f87-44e1-9f86-e9ea85a06491.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1725886858448-dc73d0b6-b1d1-41c2-b37a-a78f7a662f29.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1725887330179-d76f67f7-4657-4e35-9f1f-aa2fab6b6ab6.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1725890922756-66dd9c7d-e1d5-48f3-a7a6-a9da39511682.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1725891343916-320e85b6-b6db-48ad-a3ff-c1bb7f2d6bb5.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1725891750058-301244c4-9245-4766-8a79-785848fa4da6.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1725935689547-8f54b1be-6645-4b61-ba26-9112a3dbe94f.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1725935939290-b825c8e8-b2b8-4ee2-9d8c-06bacccd7bb3.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1725936091823-961390d3-1d00-4691-bfc6-965467e3ecd9.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1725937982501-323410dc-a591-4171-a7b7-46c9b80c4589.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1725938095823-92d7037c-d153-45b0-b01d-0f95c4f1aba7.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1725938256152-4cfe5567-29ff-4907-9a9e-d9a34db21266.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1725939901725-93d6d82c-2369-4ef7-aae8-2113b543c180.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1725940030755-6285cd8c-0b95-499e-831f-912a3a40481e.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1725940228790-ea506be2-567b-4aeb-9700-324f9d3e8451.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1725940316850-a4df9a91-4bfa-47ed-ac3d-55eba70a6828.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1725969906603-52dbb4c4-043b-40b8-a3f1-a73d4bbda57a.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1725972171244-5c3ee2e9-df29-4f56-b145-fd9c1a3df87f.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1725972512973-b9ad168c-d76d-41db-ab3e-bc91b10bbd6c.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1725974710530-85dee3ef-c88e-43a8-9bcd-109b92eb2168.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1725974840740-b1cc5219-2e35-4709-b5db-62ca5ce7e35d.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1725974919755-e5a2ded1-4d68-4b2f-8c62-adf55d54eb2d.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1725975008196-66dd52ac-a05e-41ff-b23c-6abe394ec8a2.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1725975349490-e4e80c6e-708a-43a5-9336-8e9e6b561c35.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1725975531687-9fd53e37-a2af-4dc0-82ea-b0ceafc9df91.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1725976200966-2f85bacb-9c0c-4ff3-acd0-bc0302b7b225.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1725976366879-68909f4e-efaa-4a7a-90e2-9b712ab8cc6f.png","https://cdn.nlark.com/yuque/0/2024/png/40370285/1725977097046-5cf3b6e2-4a89-4b4a-b346-0b6210a4f221.png"],"datePublished":"2024-09-10T14:06:10.000Z","dateModified":"2024-11-19T09:37:00.793Z","author":{"@type":"Person","name":"yzd"},"publisher":{"@type":"Organization","name":"yzd's Log Book","logo":{"@type":"ImageObject","url":"https://s2.loli.net/2024/11/11/wIobSZOAEGchgVv.png"}},"description":"了解简单的推荐系统"}</script><link rel="canonical" href="https://yzd11.github.io/2024/09/10/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/"><link rel="icon" href="https://s2.loli.net/2024/11/11/wIobSZOAEGchgVv.png"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link data-pjax rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link data-pjax rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head><body class="is-3-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="https://s2.loli.net/2024/11/11/wIobSZOAEGchgVv.png" alt="yzd&#039;s Log Book" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">YZD&#039;S LOG BOOK</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/yzd11/"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2024-09-10T14:06:10.000Z" title="2024/9/10 22:06:10">2024-09-10</time></span><span class="level-item">Updated&nbsp;<time dateTime="2024-11-19T09:37:00.793Z" title="2024/11/19 17:37:00">2024-11-19</time></span><span class="level-item"><a class="link-muted" href="/categories/blog/">blog</a></span><span class="level-item">30 minutes read (About 4444 words)</span></div></div><h1 class="title is-3 is-size-4-mobile">推荐系统</h1><div class="content"><h2 id="viaER">引入</h2>
+
+
+
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1725878076162-33f96ebc-ca0a-4dfc-9f44-ffafb593d31f.png"></p>
+<p>其中$ j $表示用户的编号，$ i $代表电影的编号，最终我们可以使用这个公式预测对于用户$ j $来讲电影$ i $的评分，这个算法有些类似于线性回归，都是将特征值乘上权重加上偏置。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1725878289200-615b1075-3d80-4737-8e33-98985df70d58.png"></p>
+<p>$ r(i,j) $：表示用户$ j $是否对于电影$ i $进行评分，$ 1 $代表是，$ 0 $代表否。</p>
+<p>$ y^{(i,j)} $：表示用户$ j $对于电影$ i $的评分，如果存在的话。</p>
+<p>$ w^{(j)},b^{(j)} $：表示对于用户$ j $的权重和偏置</p>
+<p>$ x^{(i)} $：表示电影$ i $的特征向量</p>
+<p>因此对于用户$ j $和电影$ i $来讲，评分为$ \mathrm{w^{(j)}\cdot x^{(i)}+b^{(j)}} $，加入$ m^{(j)} $作为对于用户$ j $评分的电影个数。</p>
+<p>为了更好的学习$ w^{(j)},b^{(j)} $可以通过最小化代价函数进行调整。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1725879353125-03f3f9ca-39e1-48bf-9d64-94e6a8bc064d.png"></p>
+<p>这仅仅是对于用户$ j $来讲所有评分电影的参数，为了实现对于全部用户的预测，我们可以将$ m^{(j)} $这个电影个数省略，这仅仅是一个常数，不会影响$ w^{(j)},b^{(j)} $的训练。同时将全部的用户相加，我们就可以训练出全部的参数。</p>
+<h2 id="DPnm8">协同过滤算法</h2>
+
+
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1725881821862-82ece18d-3df0-4c8c-8cb5-060759a2958f.png"></p>
+<p>我们刚刚使用了特征值，但是这些特征值的数据从何而来，我们可以对其进行学习。通过预测$ w,b $类似的算法我们可以对$ x $的值实现类似的预测。那么可能会想到既然可以通过评分对特征值进行预测，那么在之前的线性回归中为什么不这样做，其实是由于这里的评分是多个用户的评分，而在之前的传统机器学习算法中我们仅仅有一个用户，因此不可以对特征值进行学习。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1725881969005-d355f68a-ca18-46e8-a9ef-74f5b548a47d.png"></p>
+<p>为了对预测的值进行一个调整，我们可以使用类似的代价函数，只不过这次$ x $成为了参数，在正则化中也是对于$ x $的正则化实现。但是现在又存在一个问题，也就是我们的$ w,b $从何而来呢，我们会想到上一节中我们学习的$ w,b $，因此我们可以将其结合在一起，这就是我们的协同过滤算法。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1725882499447-c3a627af-f5be-4798-8ac8-79d00e232ea6.png"></p>
+<p><font style="color:rgb(25, 27, 31);background-color:#FBDE28;">协同过滤</font><font style="color:rgb(25, 27, 31);">，从字面上理解，包括协同和过滤两个操作。所谓协同就是利用群体的行为来做决策(推荐)，生物上有</font><a target="_blank" rel="noopener" href="https://zhida.zhihu.com/search?q=%E5%8D%8F%E5%90%8C%E8%BF%9B%E5%8C%96&zhida_source=entity&is_preview=1"><font style="color:rgb(25, 27, 31);">协同进化</font></a><font style="color:rgb(25, 27, 31);">的说法，通过协同的作用，让群体逐步进化到更佳的状态。对于推荐系统来说，通过用户的持续协同作用，最终给用户的</font><a target="_blank" rel="noopener" href="https://zhida.zhihu.com/search?q=%E6%8E%A8%E8%8D%90%E4%BC%9A&zhida_source=entity&is_preview=1"><font style="color:rgb(25, 27, 31);">推荐会</font></a><font style="color:rgb(25, 27, 31);">越来越准。而过滤，就是从可行的决策(推荐)方案(标的物)中将用户喜欢的方案(标的物)找(过滤)出来。</font></p>
+<p>将上面两个算法和在一起，我们就可以得到协同过滤算法，也就是同时实现对于$ w,b,x $全部参数值的训练。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1725882583136-b3dd6301-8bf2-4732-9193-852543b9786e.png"></p>
+<p>对于这个代价函数的调整，我们还可以使用梯度下降算法，只不过这次的偏置项会增加一个参数$ x $。</p>
+<h2 id="EFMt7">二进制标签</h2>
+
+
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1725884205941-a67bb8ab-a6a1-4c5f-8bf7-f96f5624e3b1.png"></p>
+<p>我们之前是对于评分进行$ 0-5 $之间的划分，现在我们不再使用这种评分而是使用$ 0,1,? $作为标签，分别代表，喜欢，不喜欢和没有被展现。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1725884789070-11c2d1a1-7570-4983-8003-be7341252452.png"></p>
+<p>关于$ 0,1,? $的选择，我们可以根据用户在浏览后是否购买，是否浏览时间超过$ 30s $，是否点击，判断用户是否喜欢。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1725884931351-ef9223b9-7997-4907-b990-c0094548b14b.png"></p>
+<p>为了实现二进制，我们可以使用之前实现的$ sigmod $函数，将其转化为概率值。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1725885220021-08ce2995-4f87-44e1-9f86-e9ea85a06491.png"></p>
+<p>最终，由于使用了$ sigmod $函数，我们无法再使用原先的代价函数，需要使用交叉熵对其计算。</p>
+<h2 id="duUPy">均值归一化</h2>
+
+
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1725886858448-dc73d0b6-b1d1-41c2-b37a-a78f7a662f29.png"></p>
+<p>尽管之前已经实现了均值归一化，但是我们的系统仍存在一些问题，也就是对于那些几乎没有评分的用户来讲，其中平方差为$ 0 $，又由于正则化参数越小越好，最终很有可能导致$ w&#x3D;0,b&#x3D;0 $的训练结果。如果直接使用这个参数对评分进行预测的话，那么就会得到全为$ 0 $的数据，因此，为了解决这个问题，我们提出了均值归一化。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1725887330179-d76f67f7-4657-4e35-9f1f-aa2fab6b6ab6.png"></p>
+<p>首先将全部用户的评分合成为一个矩阵，接着计算每一行的均值，得到一个平均值向量$ u $，然后对于每个用户都减去这个向量$ u $，最终我们得到了新的$ y{(i,j)} $，然后再计算预测值的时候将得到的结果加上之前的均值。其实本质上相当于对于原来预测为$ 0 $的评分设置为其他用户评分的平均值，使得预测的结果更加的合理。这样就可以使得对于原来那些评分很少或没有评分的用户的预测值更加的合理。</p>
+<p>这是对于行平均，也可以进行列平均，比如有一部之前从没有上线的电影，由于评分很少，可以使用列平均进行优化，但是这样的效果不如行平均。</p>
+<h2 id="TUxPd">低秩矩阵分解</h2>
+
+
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1725890922756-66dd9c7d-e1d5-48f3-a7a6-a9da39511682.png"></p>
+<p>我们为了更加方便计算实现向量化，将原先的矩阵$ Y $分解为$ \theta^Tx $，这样的方式也被称为<font style="background-color:#FBDE28;">低秩矩阵分解</font>。</p>
+<p><font style="color:rgb(25, 27, 31);">低秩矩阵分解的核心目标是将一个</font><a target="_blank" rel="noopener" href="https://zhida.zhihu.com/search?q=%E9%AB%98%E7%BB%B4%E7%9F%A9%E9%98%B5&zhida_source=entity&is_preview=1"><font style="color:rgb(25, 27, 31);">高维矩阵</font></a><font style="color:rgb(25, 27, 31);"> </font>$ M $<font style="color:rgb(25, 27, 31);"> 近似分解为两个较小的矩阵</font>$ A $<font style="color:rgb(25, 27, 31);">和</font>$ B $<font style="color:rgb(25, 27, 31);"> 的乘积。在数学上，这可以表达为 </font>$ M ≈ A × B $<font style="color:rgb(25, 27, 31);">，其中</font>$ M $<font style="color:rgb(25, 27, 31);">是一个</font>$ m × n $<font style="color:rgb(25, 27, 31);">矩阵，</font>$ A $<font style="color:rgb(25, 27, 31);">是</font>$ m × k $<font style="color:rgb(25, 27, 31);">的矩阵，</font>$ B $<font style="color:rgb(25, 27, 31);"> 是</font>$ k × n $<font style="color:rgb(25, 27, 31);"> 的矩阵，而</font>$ k $<font style="color:rgb(25, 27, 31);">（秩）远小于</font>$ m $<font style="color:rgb(25, 27, 31);">和</font>$ n $<font style="color:rgb(25, 27, 31);">。这种分解的目的是减少矩阵的维度，同时保留其主要的特征和结构。</font></p>
+<p>还有一个问题</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1725891343916-320e85b6-b6db-48ad-a3ff-c1bb7f2d6bb5.png"></p>
+<p>我们找到一个物品时，通常界面上会推荐类似的物品，为了实现找到类似的物品，我们可以利用我们已经训练好的特征。对于人们来讲，这些特征可能会很难被解释出来，但是我们可以通过计算另外一个电影的特征$ x^{(j)} $和我们已经看过的电影的特征$ x^{(i)} $进行计算，通过计算他们的$ L2 $范数从而得到其中最类似的五个电影推荐给用户。</p>
+<h2 id="LtjlN">补充</h2>
+
+
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1725891750058-301244c4-9245-4766-8a79-785848fa4da6.png"></p>
+<ul>
+<li>冷启动问题</li>
+</ul>
+<p>对于新出的电影或者新的用户，我们如果使用协同过滤算法最终的表现不是很好，即使有均值归一化的帮助。</p>
+<ul>
+<li>使用更多的边信息</li>
+</ul>
+<p>再协同过滤算法中我们仅使用了用户对于电影的评分，但是还有很多的信息，例如用户偏好，电影的主演，等等这些信息都没有被充分利用。</p>
+<h2 id="Wu28p">基于内容过滤</h2>
+
+
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1725935689547-8f54b1be-6645-4b61-ba26-9112a3dbe94f.png"></p>
+<p>通过对比可以看到之前的协同过滤算法仅仅是通过多个用户之前的评分进行预测，而现在我们通过充分利用用户和物品的特征来进行预测，我们仍然具有不同用户的评分，但是现在基于内容过滤更加侧重于利用用户和物品的特征。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1725935939290-b825c8e8-b2b8-4ee2-9d8c-06bacccd7bb3.png"></p>
+<p>现在我们通过分析用户和电影的特征，分别得到$ x_u^{(j)} $，$ x_m^{(i)} $，这两个向量的大小可以并不相同，甚至差距很大。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1725936091823-961390d3-1d00-4691-bfc6-965467e3ecd9.png"></p>
+<p>再基于内容的过滤中不再使用偏置项，同时将$ w,x $修改为$ V_u^{(j)} $，$ V_m{(i)} $。将这两个进行点积，但是注意$ x_u^{(j)},x_m^{(i)} $的大小可以不同，但是得到的$ V_u^{(j)} $，$ V_m{(i)} $的大小一定要相同。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1725937982501-323410dc-a591-4171-a7b7-46c9b80c4589.png"></p>
+<p>为了得到$ V_u^{(j)} $，$ V_m{(i)} $，可以使用神经网络进行深度学习，然后将得到的值进行内积，同时通过$ sigmod $函数计算概率值。注意，隐藏层的神经元个数可以任意，但是输出层的神经元个数这两个神经网络一定要相同。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1725938095823-92d7037c-d153-45b0-b01d-0f95c4f1aba7.png"></p>
+<p>再计算这个神经网络的参数时，通过最小化之前的代价函数，同时进行正则化，最终得到$ V_u^{(j)} $，$ V_m{(i)} $。同时可以使用这两个参数进行相似值的寻找。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1725938256152-4cfe5567-29ff-4907-9a9e-d9a34db21266.png"></p>
+<p>我们可以使用之前提到的$ L2 $范数，进行计算找到类似的电影，这种方法可以提前计算，例如在用户访问之前提前在服务器上进行计算，当用户看完当前电影之后可以为用户提供推荐。</p>
+<h2 id="YbQfl">大型目录推荐</h2>
+
+
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1725939901725-93d6d82c-2369-4ef7-aae8-2113b543c180.png"></p>
+<p>在我们为用户进行推荐的时候如果对每个项目都进行评估，需要的计算量一定是相当巨大的，因此可以通过先检索再评分的方式。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1725940030755-6285cd8c-0b95-499e-831f-912a3a40481e.png"></p>
+<p>在进行检索时，可以选择根据用户最近看的$ 10 $个电影进行推荐类似的电影，或者选择用户最常看的三个分类中的$ Top 10 $，或者选择用户所在地区$ Top20 $的电影。最后将这些合在一起去除重复和看过的，合成一个列表给用户。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1725940228790-ea506be2-567b-4aeb-9700-324f9d3e8451.png"></p>
+<p>在进行排名时，将刚刚得到的列表放入训练模型中，将得到的内积作为评分，为用户形成一个排名表。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1725940316850-a4df9a91-4bfa-47ed-ac3d-55eba70a6828.png"></p>
+<p>在检索中，虽然选择更多的项目数可以得到更好的表现，但是会降低推荐速度。为了分析&#x2F;优化权衡，可以通过离线学习来查看检索更多项目是否会导致更相关的推荐（即，显示给用户的项目中$ p(y) &#x3D; 1 $的概率更高）。</p>
+<h2 id="dILnl">在线学习</h2>
+
+
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1725969906603-52dbb4c4-043b-40b8-a3f1-a73d4bbda57a.png"></p>
+<p>对于一个连续变化的数据集，我们现在可以具有更好的处理方法，也就是将其中的样本仅使用一次，然后丢弃，不再使用固定的训练集。因为我们具有连续不断的数据集，因此可以随着用户的偏好进行随时的调整，这种方法也被称为在线学习。</p>
+<p>于此对应，还有一种方法称为离线学习。</p>
+<p>离线学习，类似于批量学习，每次训练一批数据，直至跑完整个样本，这个时候误差率可能不让你满意，把整个样本又做个上述操作，直至误差很小。离线学习是一个$ batch $训练完才更新权重，因此要求所有数据必须在每一个训练训练操作中$ batch $中都是可用的，这样不会因为个别数据的更新错误把网络带向极端。</p>
+<p>简单的讲：</p>
+<p><font style="background-color:#FBDE28;">在线学习</font>：一个样本训练完，直接更新权重。</p>
+<p><font style="background-color:#FBDE28;">离线学习</font>：一个样本进入，跑完整个样本才更新权重。</p>
+<h2 id="iUnFj">主成分分析PCA</h2>
+
+
+<p>大多数时候我们选择的特征不仅仅是两三个，可能是$ 10,20,50,1000 $，这样的话，我们无法做到对人们展示一个二维或者三维的图像。因此我们需要讲这些大量的特征简化为两个或者三个，更好对用户展示，这种方法可以被称为$ PCA（principal components analysis） $即 主成分分析。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1725972171244-5c3ee2e9-df29-4f56-b145-fd9c1a3df87f.png"></p>
+<p>图中这种情况，我们有两个特征，一个是长度，一个是宽度，但是宽度几乎不变，但是长度变化很大，因此我们可以选择仅使用长度作为我们需要的特征。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1725972512973-b9ad168c-d76d-41db-ab3e-bc91b10bbd6c.png"></p>
+<p>但是在这个图中，车子的高度和长度都有很大的变化。因此，我们可以再加上一个轴$ z $，作为新的特征值，这样就可以使用一个特征代表之前的两个特征。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1725974710530-85dee3ef-c88e-43a8-9bcd-109b92eb2168.png"></p>
+<p>如果选择之前的$ x $轴作为新的$ z $轴，那么我们仍能在新的轴上得到很大的方差。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1725974840740-b1cc5219-2e35-4709-b5db-62ca5ce7e35d.png">稍微进行一下调整，现在得到的$ z $轴上仅保留了很小的方差。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1725974919755-e5a2ded1-4d68-4b2f-8c62-adf55d54eb2d.png"></p>
+<p>在进行一次调整，我们可以得到最大的方差，那么现在的$ z $轴就可以作为我们的主成分。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1725975008196-66dd52ac-a05e-41ff-b23c-6abe394ec8a2.png"></p>
+<p>现在我们既然找到了主成分，可以讲原先两维的数据转换为一维，也就是改变基向量，将原先在$ x,y $坐标轴上斜长度为$ 1 $的向量作为新的坐标轴的基向量，也就是$ [0.71,0.71]^{T} $。接着将原先在$ x,y $上的坐标和基向量做内积，最终我们可以得到在新的轴上的新特征值$ 3.55 $。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1725975349490-e4e80c6e-708a-43a5-9336-8e9e6b561c35.png"></p>
+<p>现在我们已经得到了其中的一个基向量$ z_1 $，接着找的这个基向量的垂直向量$ z_2 $，如果是要形成一个三维的可视化图形的话，我们可以在加上一个向量$ z_3 $，垂直于前两个$ z_1,z_2 $。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1725975531687-9fd53e37-a2af-4dc0-82ea-b0ceafc9df91.png"></p>
+<p>似乎看起来$ PCA $和之前学到的线性回归很类似，但是实际上两者完全不一样，线性回归是最小化预测值和实际值之间基于$ y $轴的距离，但是$ PCA $则是最小化它们之间的垂直距离，或者说是增大他们分布的方差。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1725976200966-2f85bacb-9c0c-4ff3-acd0-bc0302b7b225.png"></p>
+<p>从直观上来看，显然我们投影的距离越短，那么两点的分布也就越远，同时也就更更好的代表原始的数据。</p>
+<p>从数学推导上来看，参照：</p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/pinard/p/6239403.html">主成分分析（PCA）原理总结 - 刘建平Pinard - 博客园</a></p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1725976366879-68909f4e-efaa-4a7a-90e2-9b712ab8cc6f.png"></p>
+<p>那么如何将新的坐标转换为原先的基向量下的坐标，需要将新的坐标乘上新的基向量，可以得到一个近似的估计。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40370285/1725977097046-5cf3b6e2-4a89-4b4a-b346-0b6210a4f221.png"></p>
+<p>$ PCA $还有别的应用在其他的方面，例如数据压缩，加速监督学习，但是现在几乎已经不用了，更多的还是用于可视化中。</p>
+</div><div class="article-licensing box"><div class="licensing-title"><p>推荐系统</p><p><a href="https://yzd11.github.io/2024/09/10/推荐系统/">https://yzd11.github.io/2024/09/10/推荐系统/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>Author</h6><p>yzd</p></div></div><div class="level-item is-narrow"><div><h6>Posted on</h6><p>2024-09-10</p></div></div><div class="level-item is-narrow"><div><h6>Updated on</h6><p>2024-11-19</p></div></div><div class="level-item is-narrow"><div><h6>Licensed under</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="icons" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="icon fab fa-creative-commons-by"></i></a><a class="icons" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="icon fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/Machine-Learning/">Machine Learning</a></div><!--!--></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2024/09/18/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">强化学习</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2024/09/09/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%88%86%E7%B1%BB/"><span class="level-item">机器学习分类</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><!--!--></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1 is-sticky"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="https://s2.loli.net/2024/11/11/Ryr92nIiLw3mVQB.jpg" alt="yzd"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">yzd</p><p class="is-size-6 is-block">Computer Science</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>郑州</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">23</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Category</p><a href="/categories"><p class="title">1</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">3</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/yzd11/" target="_blank" rel="me noopener">Follow</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Github" href="https://github.com/yzd11/"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="语雀" href="https://www.yuque.com/yzd11/myblog/"><i class="fa-solid fa-feather"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="CSDN" href="https://blog.csdn.net/yzd111/"><i class="fa-solid fa-c"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Blog" href="https://yzd11.github.io/"><i class="fa-brands fa-blogger-b"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">Catalogue</h3><ul class="menu-list"><li><a class="level is-mobile" href="#viaER"><span class="level-left"><span class="level-item">1</span><span class="level-item">引入</span></span></a></li><li><a class="level is-mobile" href="#DPnm8"><span class="level-left"><span class="level-item">2</span><span class="level-item">协同过滤算法</span></span></a></li><li><a class="level is-mobile" href="#EFMt7"><span class="level-left"><span class="level-item">3</span><span class="level-item">二进制标签</span></span></a></li><li><a class="level is-mobile" href="#duUPy"><span class="level-left"><span class="level-item">4</span><span class="level-item">均值归一化</span></span></a></li><li><a class="level is-mobile" href="#TUxPd"><span class="level-left"><span class="level-item">5</span><span class="level-item">低秩矩阵分解</span></span></a></li><li><a class="level is-mobile" href="#LtjlN"><span class="level-left"><span class="level-item">6</span><span class="level-item">补充</span></span></a></li><li><a class="level is-mobile" href="#Wu28p"><span class="level-left"><span class="level-item">7</span><span class="level-item">基于内容过滤</span></span></a></li><li><a class="level is-mobile" href="#YbQfl"><span class="level-left"><span class="level-item">8</span><span class="level-item">大型目录推荐</span></span></a></li><li><a class="level is-mobile" href="#dILnl"><span class="level-left"><span class="level-item">9</span><span class="level-item">在线学习</span></span></a></li><li><a class="level is-mobile" href="#iUnFj"><span class="level-left"><span class="level-item">10</span><span class="level-item">主成分分析PCA</span></span></a></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/blog/"><span class="level-start"><span class="level-item">blog</span></span><span class="level-end"><span class="level-item tag">23</span></span></a></li></ul></div></div></div><div class="column-right-shadow is-hidden-widescreen"></div></div><div class="column column-right is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only order-3"><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-11-19T08:27:32.000Z">2024-11-19</time></p><p class="title"><a href="/2024/11/19/Self-Attention/">Self-Attention</a></p><p class="categories"><a href="/categories/blog/">blog</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-11-08T14:27:09.000Z">2024-11-08</time></p><p class="title"><a href="/2024/11/08/Transformer/">Transformer</a></p><p class="categories"><a href="/categories/blog/">blog</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-10-24T13:28:27.000Z">2024-10-24</time></p><p class="title"><a href="/2024/10/24/RNN/">RNN</a></p><p class="categories"><a href="/categories/blog/">blog</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-10-19T14:18:19.000Z">2024-10-19</time></p><p class="title"><a href="/2024/10/19/%E8%AE%AD%E7%BB%83%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">训练神经网络</a></p><p class="categories"><a href="/categories/blog/">blog</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-10-19T13:23:46.000Z">2024-10-19</time></p><p class="title"><a href="/2024/10/19/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">神经网络</a></p><p class="categories"><a href="/categories/blog/">blog</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2024/11/"><span class="level-start"><span class="level-item">November 2024</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/10/"><span class="level-start"><span class="level-item">October 2024</span></span><span class="level-end"><span class="level-item tag">10</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/09/"><span class="level-start"><span class="level-item">September 2024</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/08/"><span class="level-start"><span class="level-item">August 2024</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/07/"><span class="level-start"><span class="level-item">July 2024</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></div></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">Tags</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/Deep-Learning/"><span class="tag">Deep Learning</span><span class="tag">8</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Machine-Learning/"><span class="tag">Machine Learning</span><span class="tag">14</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Reinforcement-learning/"><span class="tag">Reinforcement learning</span><span class="tag">1</span></a></div></div></div></div></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="https://s2.loli.net/2024/11/11/wIobSZOAEGchgVv.png" alt="yzd&#039;s Log Book" height="28"></a><p class="is-size-7"><span>&copy; 2024 yzd</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p><p class="is-size-7">用💖发电</p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/yzd11/"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script data-pjax src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script data-pjax src="/js/back_to_top.js" defer></script><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "This website uses cookies to improve your experience.",
+          dismiss: "Got it!",
+          allow: "Allow cookies",
+          deny: "Decline",
+          link: "Learn more",
+          policy: "Cookie Policy",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script type="text/javascript" id="MathJax-script" async>MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      },
+      chtml: {
+        matchFontHeight: false
+      }
+    };</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script><!--!--><script data-pjax src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script></body></html>
