@@ -10,7 +10,7 @@
   <rights>All rights reserved 2026, yzd</rights>
   <subtitle>机器学习 / 深度学习 学习笔记</subtitle>
   <title>yzd's Log Book</title>
-  <updated>2026-08-22T06:58:27.573Z</updated>
+  <updated>2026-08-22T07:24:29.543Z</updated>
   <entry>
     <author>
       <name>yzd</name>
@@ -25,7 +25,7 @@
     <published>2024-11-20T10:58:21.000Z</published>
     <summary>了解 BERT 模型</summary>
     <title>BERT</title>
-    <updated>2026-08-22T06:58:27.573Z</updated>
+    <updated>2026-08-22T07:24:29.543Z</updated>
   </entry>
   <entry>
     <author>
@@ -41,7 +41,7 @@
     <published>2024-11-19T08:27:32.000Z</published>
     <summary>了解自注意力机制</summary>
     <title>Self-Attention</title>
-    <updated>2026-08-22T06:58:27.577Z</updated>
+    <updated>2026-08-22T07:24:29.546Z</updated>
   </entry>
   <entry>
     <author>
@@ -57,7 +57,7 @@
     <published>2024-11-08T14:27:09.000Z</published>
     <summary>了解 Transformer</summary>
     <title>Transformer</title>
-    <updated>2026-08-22T06:58:27.578Z</updated>
+    <updated>2026-08-22T07:24:29.547Z</updated>
   </entry>
   <entry>
     <author>
@@ -73,7 +73,7 @@
     <published>2024-10-24T13:28:27.000Z</published>
     <summary>了解循环神经网络</summary>
     <title>RNN</title>
-    <updated>2026-08-22T06:58:27.576Z</updated>
+    <updated>2026-08-22T07:24:29.544Z</updated>
   </entry>
   <entry>
     <author>
@@ -89,7 +89,7 @@
     <published>2024-10-19T14:18:19.000Z</published>
     <summary>神经网络的训练技巧</summary>
     <title>训练神经网络</title>
-    <updated>2026-08-22T06:58:27.595Z</updated>
+    <updated>2026-08-22T07:24:29.574Z</updated>
   </entry>
   <entry>
     <author>
@@ -105,7 +105,7 @@
     <published>2024-10-19T13:23:46.000Z</published>
     <summary>了解简单的神经网络</summary>
     <title>神经网络</title>
-    <updated>2026-08-22T06:58:27.592Z</updated>
+    <updated>2026-08-22T07:24:29.569Z</updated>
   </entry>
   <entry>
     <author>
@@ -121,7 +121,7 @@
     <published>2024-10-14T14:10:45.000Z</published>
     <summary>了解卷积神经网络</summary>
     <title>卷积神经网络</title>
-    <updated>2026-08-22T06:58:27.580Z</updated>
+    <updated>2026-08-22T07:24:29.550Z</updated>
   </entry>
   <entry>
     <author>
@@ -137,7 +137,7 @@
     <published>2024-10-13T03:05:45.000Z</published>
     <summary>了解简单的神经网络和反向传播</summary>
     <title>神经网络和反向传播</title>
-    <updated>2026-08-22T06:58:27.592Z</updated>
+    <updated>2026-08-22T07:24:29.570Z</updated>
   </entry>
   <entry>
     <author>
@@ -153,7 +153,7 @@
     <published>2024-10-12T14:14:09.000Z</published>
     <summary>了解损失函数</summary>
     <title>损失函数与优化</title>
-    <updated>2026-08-22T06:58:27.585Z</updated>
+    <updated>2026-08-22T07:24:29.560Z</updated>
   </entry>
   <entry>
     <author>
@@ -169,7 +169,7 @@
     <published>2024-10-11T14:15:51.000Z</published>
     <summary>原始的图像分类算法</summary>
     <title>图像分类:KNN和线性分类器</title>
-    <updated>2026-08-22T06:58:27.581Z</updated>
+    <updated>2026-08-22T07:24:29.551Z</updated>
   </entry>
   <entry>
     <author>
@@ -185,7 +185,7 @@
     <published>2024-10-11T09:34:47.000Z</published>
     <summary>了解朴素贝叶斯分类器</summary>
     <title>朴素贝叶斯分类器</title>
-    <updated>2026-08-22T06:58:27.588Z</updated>
+    <updated>2026-08-22T07:24:29.563Z</updated>
   </entry>
   <entry>
     <author>
@@ -201,7 +201,7 @@
     <published>2024-10-09T14:24:56.000Z</published>
     <summary>了解感知机算法</summary>
     <title>感知机</title>
-    <updated>2026-08-22T06:58:27.585Z</updated>
+    <updated>2026-08-22T07:24:29.558Z</updated>
   </entry>
   <entry>
     <author>
@@ -217,7 +217,7 @@
     <published>2024-10-08T14:03:33.000Z</published>
     <summary>了解支持向量机算法</summary>
     <title>支持向量机</title>
-    <updated>2026-08-22T06:58:27.587Z</updated>
+    <updated>2026-08-22T07:24:29.562Z</updated>
   </entry>
   <entry>
     <author>
@@ -233,7 +233,7 @@
     <published>2024-09-18T10:55:36.000Z</published>
     <summary>了解简单的强化学习</summary>
     <title>强化学习</title>
-    <updated>2026-08-22T06:58:27.584Z</updated>
+    <updated>2026-08-22T07:24:29.555Z</updated>
   </entry>
   <entry>
     <author>
@@ -249,7 +249,7 @@
     <published>2024-09-10T14:06:10.000Z</published>
     <summary>了解简单的推荐系统</summary>
     <title>推荐系统</title>
-    <updated>2026-08-22T06:58:27.586Z</updated>
+    <updated>2026-08-22T07:24:29.561Z</updated>
   </entry>
   <entry>
     <author>
@@ -265,7 +265,7 @@
     <published>2024-09-09T11:52:43.000Z</published>
     <summary>机器学习介绍</summary>
     <title>机器学习分类</title>
-    <updated>2026-08-22T06:58:27.589Z</updated>
+    <updated>2026-08-22T07:24:29.564Z</updated>
   </entry>
   <entry>
     <author>
@@ -281,7 +281,7 @@
     <published>2024-09-05T13:18:34.000Z</published>
     <summary>了解异常检测算法</summary>
     <title>异常检测</title>
-    <updated>2026-08-22T06:58:27.583Z</updated>
+    <updated>2026-08-22T07:24:29.553Z</updated>
   </entry>
   <entry>
     <author>
@@ -297,7 +297,7 @@
     <published>2024-09-05T12:39:29.000Z</published>
     <summary>模型选择与评估的技巧</summary>
     <title>模型选择与评估</title>
-    <updated>2026-08-22T06:58:27.591Z</updated>
+    <updated>2026-08-22T07:24:29.567Z</updated>
   </entry>
   <entry>
     <author>
@@ -313,7 +313,7 @@
     <published>2024-09-05T11:43:12.000Z</published>
     <summary>了解聚类算法</summary>
     <title>聚类算法</title>
-    <updated>2026-08-22T06:58:27.594Z</updated>
+    <updated>2026-08-22T07:24:29.573Z</updated>
   </entry>
   <entry>
     <author>
@@ -329,6 +329,6 @@
     <published>2024-08-28T17:20:17.000Z</published>
     <summary>了解决策树算法</summary>
     <title>决策树</title>
-    <updated>2026-08-22T06:58:27.579Z</updated>
+    <updated>2026-08-22T07:24:29.548Z</updated>
   </entry>
 </feed>
