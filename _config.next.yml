@@ -1,0 +1,27 @@
+scheme: Gemini
+darkmode: auto
+menu:
+  home: / || fa fa-home
+  categories: /categories/ || fa fa-th
+  tags: /tags/ || fa fa-tags
+  archives: /archives/ || fa fa-archive
+  about: /about/ || fa fa-user
+social:
+  GitHub: https://github.com/yzd11 || fab fa-github
+toc:
+  enable: true
+  number: false
+  wrap: true
+math:
+  every_page: false
+  katex:
+    enable: true
+codeblock:
+  copy_button:
+    enable: true
+footer:
+  powered: true
+
+vendors:
+  internal: local
+  plugins: local
