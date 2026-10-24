@@ -1,6 +1,5 @@
 // 文章没写 cover / description 时自动补上：
-// cover 取正文第一张图，description 取“一句话总结”，
-// 文章页顶部横幅统一用渐变色（论文图做横幅会盖住标题）
+// cover 取正文第一张图，description 取“一句话总结”
 hexo.extend.filter.register('before_post_render', function (data) {
   if (data.layout !== 'post') return data;
 
@@ -11,8 +10,6 @@ hexo.extend.filter.register('before_post_render', function (data) {
       data.cover = /^(https?:)?\//.test(src) ? src : '/' + data.path + src.split('/').pop();
     }
   }
-
-  if (!data.top_img) data.top_img = hexo.theme.config.default_top_img;
 
   if (!data.description) {
     const summary = data.content.match(/\*\*一句话总结\*\*[:：]\s*(.+)/);

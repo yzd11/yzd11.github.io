@@ -7,7 +7,6 @@ nav:
 
 menu:
   首页: / || fas fa-home
-  论文笔记: /categories/论文阅读/ || fas fa-book-open
   归档: /archives/ || fas fa-archive
   标签: /tags/ || fas fa-tags
   分类: /categories/ || fas fa-folder-open
@@ -29,10 +28,8 @@ avatar:
   img: /img/avatar.jpg
   effect: false
 
-# 顶部横幅用渐变色，不依赖图片
-default_top_img: 'linear-gradient(135deg, #4f6bed 0%, #6a5ae0 45%, #14b8a6 100%)'
-index_img: 'linear-gradient(135deg, #4f6bed 0%, #6a5ae0 45%, #14b8a6 100%)'
-index_top_img_height: 360px
+# 不显示顶部横幅
+disable_top_img: true
 footer_img: false
 
 cover:
@@ -56,12 +53,7 @@ post_meta:
     label: true
 
 subtitle:
-  enable: true
-  effect: true
-  source: false
-  sub:
-    - 论文阅读笔记与技术文章
-    - 边缘智能 · 边云协同 · 大模型推理
+  enable: false
 
 index_layout: 1
 index_post_content:
@@ -96,7 +88,7 @@ aside:
   position: right
   card_author:
     enable: true
-    description: 读论文，记笔记，研究边缘智能
+    description:
     button:
       enable: false
   card_announcement:
