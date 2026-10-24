@@ -1,0 +1,13 @@
+/* 正文排版：加大行距，表格和公式更易读 */
+#article-container { line-height: 1.85; }
+#article-container table { display: table; width: 100%; }
+#article-container table th { background: rgba(79, 107, 237, .08); }
+#article-container .katex-display { overflow-x: auto; overflow-y: hidden; padding: 4px 0; }
+#article-container img { border-radius: 8px; box-shadow: 0 4px 16px rgba(0, 0, 0, .08); }
+#article-container img + em { display: block; text-align: center; color: #858585; font-size: .9em; margin-top: -.6em; }
+[data-theme="dark"] #article-container img { filter: brightness(.9); }
+/* 首页卡片：封面图完整显示（论文图多是白底图表） */
+#recent-posts .post_cover img.post-bg { object-fit: contain !important; background: #fff; padding: 10px; }
+/* 正文里的论文英文标题（H1）缩小一些，避免手机上占满一屏 */
+#article-container h1 { font-size: 1.5em; line-height: 1.4; }
+@media (max-width: 768px) { #article-container h1 { font-size: 1.25em; } }

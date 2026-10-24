@@ -4,7 +4,7 @@
 
 # Site
 title: yzd 的博客
-subtitle: '论文阅读笔记与技术文章'
+subtitle: ''
 description: ''
 keywords:
 author: yzd
@@ -96,7 +96,7 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: next
+theme: butterfly
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
@@ -116,3 +116,8 @@ markdown:
   images:
     lazyload: true
     post_asset: true
+
+search:
+  path: search.xml
+  field: post
+  content: true
