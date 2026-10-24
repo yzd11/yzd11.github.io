@@ -85,7 +85,7 @@ footer:
 aside:
   enable: true
   mobile: true
-  position: right
+  position: left
   card_author:
     enable: true
     description:
