@@ -363,3 +363,19 @@ a { transition: color .15s ease; }
 #article-container table thead { background: transparent !important; }
 #aside-content .card-info .card-info-social-icons .social-icon { margin: 0 12px 0 0; }
 #aside-content .card-tag-cloud a { padding: 0 !important; }
+
+/* ---------- 关于页 ---------- */
+.about-card { display: flex; align-items: center; gap: 24px; padding-bottom: 28px; margin-bottom: 28px; border-bottom: 1px solid var(--line); }
+#article-container .about-card img.about-avatar { width: 88px; height: 88px; margin: 0; border-radius: 50%; border: 1px solid var(--line); flex: 0 0 auto; }
+.about-name { font-family: var(--serif); font-size: 1.6em; font-weight: 700; line-height: 1.3; }
+.about-motto { color: var(--muted); font-family: var(--serif); margin: 4px 0 8px; line-height: 1.6; }
+#article-container .about-links a { margin-right: 16px; font-size: .92em; }
+.about-timeline { margin: .4em 0 1em; }
+.about-row { display: flex; gap: 24px; padding: 8px 0; border-bottom: 1px solid var(--line); }
+.about-row:last-child { border-bottom: 0; }
+.about-time { color: var(--muted); min-width: 7.5em; font-variant-numeric: tabular-nums; }
+.about-closing { margin-top: 2.4em; color: var(--muted); font-family: var(--serif); font-style: italic; }
+@media (max-width: 768px) {
+  .about-card { flex-direction: column; align-items: flex-start; gap: 14px; }
+  .about-row { flex-direction: column; gap: 2px; }
+}

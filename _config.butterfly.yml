@@ -87,8 +87,9 @@ aside:
   enable: true
   mobile: true
   position: left
+  # 个人信息放在“关于”页，侧栏不再显示
   card_author:
-    enable: true
+    enable: false
     description:
     button:
       enable: false
