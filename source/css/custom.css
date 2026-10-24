@@ -1,17 +1,17 @@
 /* ==========================================================
    yzd 的博客：简约样式
    在 Butterfly 主题之上重写配色、排版和组件外观。
-   设计原则：纸色底、墨色字、一种强调色；用细线代替阴影和色块。
+   设计原则：纯白底、黑字，只用黑白两色；用细线代替阴影和色块。
    ========================================================== */
 
 :root {
-  --paper: #fbfaf7;
-  --ink: #1f2328;
-  --ink-soft: #4a4f57;
-  --muted: #8a8f98;
-  --line: #e6e3dd;
-  --accent: #b8572f;
-  --accent-soft: rgba(184, 87, 47, .08);
+  --paper: #ffffff;
+  --ink: #111111;
+  --ink-soft: #444444;
+  --muted: #8c8c8c;
+  --line: #e5e5e5;
+  --accent: #111111;
+  --accent-soft: rgba(0, 0, 0, .06);
   --serif: "Source Han Serif SC", "Noto Serif CJK SC", "Songti SC", "STSong", "SimSun", Georgia, serif;
   --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
   --mono: "JetBrains Mono", "SFMono-Regular", Menlo, Consolas, monospace;
@@ -34,20 +34,20 @@
 }
 
 [data-theme="dark"] {
-  --paper: #151515;
-  --ink: #e6e3dd;
-  --ink-soft: #b9b6b0;
-  --muted: #7d7a75;
-  --line: #2a2928;
-  --accent: #e08a5f;
-  --accent-soft: rgba(224, 138, 95, .1);
+  --paper: #0a0a0a;
+  --ink: #f2f2f2;
+  --ink-soft: #bdbdbd;
+  --muted: #7a7a7a;
+  --line: #262626;
+  --accent: #f2f2f2;
+  --accent-soft: rgba(255, 255, 255, .08);
   --global-bg: var(--paper);
   --card-bg: transparent;
   --font-color: var(--ink);
-  --btn-bg: #2a2928;
+  --btn-bg: #262626;
   --blockquote-bg: transparent;
   --sidebar-bg: var(--paper);
-  --search-bg: #1c1c1c;
+  --search-bg: #141414;
   --zoom-bg: var(--paper);
 }
 
@@ -154,6 +154,7 @@ a { transition: color .15s ease; }
 #aside-content #card-toc .toc-content .toc-link.active {
   background: transparent !important;
   color: var(--accent) !important;
+  font-weight: 700;
   box-shadow: inset 2px 0 0 var(--accent);
 }
 #aside-content #card-toc .toc-content .toc-link:hover { color: var(--ink); }
@@ -379,3 +380,4 @@ a { transition: color .15s ease; }
   .about-card { flex-direction: column; align-items: flex-start; gap: 14px; }
   .about-row { flex-direction: column; gap: 2px; }
 }
+#recent-posts .recent-post-item .article-title { color: var(--ink) !important; }
