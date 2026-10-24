@@ -1,0 +1,188 @@
+# Butterfly 主题配置，未写的项沿用主题默认值
+
+nav:
+  display_title: true
+  display_post_title: true
+  fixed: false
+
+menu:
+  首页: / || fas fa-home
+  论文笔记: /categories/论文阅读/ || fas fa-book-open
+  归档: /archives/ || fas fa-archive
+  标签: /tags/ || fas fa-tags
+  分类: /categories/ || fas fa-folder-open
+  关于: /about/ || fas fa-user
+
+code_blocks:
+  theme: pale night
+  macStyle: true
+  height_limit: 400
+  copy: true
+  language: true
+  shrink: false
+
+social:
+  fab fa-github: https://github.com/yzd11 || GitHub || '#24292e'
+
+favicon: /img/favicon.png
+avatar:
+  img: /img/avatar.jpg
+  effect: false
+
+# 顶部横幅用渐变色，不依赖图片
+default_top_img: 'linear-gradient(135deg, #4f6bed 0%, #6a5ae0 45%, #14b8a6 100%)'
+index_img: 'linear-gradient(135deg, #4f6bed 0%, #6a5ae0 45%, #14b8a6 100%)'
+index_top_img_height: 360px
+footer_img: false
+
+cover:
+  index_enable: true
+  aside_enable: true
+  archives_enable: true
+
+post_meta:
+  page:
+    date_type: created
+    date_format: date
+    categories: true
+    tags: true
+    label: false
+  post:
+    position: center
+    date_type: both
+    date_format: date
+    categories: true
+    tags: true
+    label: true
+
+subtitle:
+  enable: true
+  effect: true
+  source: false
+  sub:
+    - 论文阅读笔记与技术文章
+    - 边缘智能 · 边云协同 · 大模型推理
+
+index_layout: 1
+index_post_content:
+  method: 2
+
+toc:
+  post: true
+  number: false
+  expand: true
+  style_simple: false
+  scroll_percent: true
+
+post_copyright:
+  enable: true
+  license: CC BY-NC-SA 4.0
+  license_url: https://creativecommons.org/licenses/by-nc-sa/4.0/
+
+related_post:
+  enable: true
+  limit: 6
+
+footer:
+  owner:
+    enable: true
+    since: 2024
+  copyright:
+    enable: false
+
+aside:
+  enable: true
+  mobile: true
+  position: right
+  card_author:
+    enable: true
+    description: 读论文，记笔记，研究边缘智能
+    button:
+      enable: false
+  card_announcement:
+    enable: false
+  card_recent_post:
+    enable: true
+    limit: 5
+  card_categories:
+    enable: true
+  card_tags:
+    enable: true
+    color: true
+  card_archives:
+    enable: true
+    limit: 6
+  card_post_series:
+    enable: false
+  card_webinfo:
+    enable: true
+    post_count: true
+    last_push_date: true
+
+readmode: true
+darkmode:
+  enable: true
+  button: true
+  autoChangeMode: 1
+
+anchor:
+  auto_update: true
+
+wordcount:
+  enable: true
+  post_wordcount: true
+  min2read: true
+  total_wordcount: true
+
+busuanzi:
+  site_uv: false
+  site_pv: false
+  page_pv: false
+
+math:
+  use: katex
+  per_page: true
+
+search:
+  use: local_search
+  placeholder: 搜索文章
+  local_search:
+    preload: false
+    top_n_per_article: 1
+    unescape: false
+
+lightbox: medium_zoom
+
+theme_color:
+  enable: true
+  main: "#4f6bed"
+  paginator: "#14b8a6"
+  button_hover: "#6a5ae0"
+  text_selection: "#14b8a6"
+  link_color: "#4f6bed"
+  meta_color: "#858585"
+  hr_color: "#a5b4fc"
+  code_foreground: "#d6336c"
+  code_background: "rgba(79, 107, 237, .08)"
+  toc_color: "#4f6bed"
+  blockquote_padding_color: "#4f6bed"
+  blockquote_background_color: "#4f6bed"
+  scrollbar_color: "#4f6bed"
+  meta_theme_color_light: "#ffffff"
+  meta_theme_color_dark: "#0d0d0d"
+
+rounded_corners_ui: true
+enter_transitions: true
+
+font:
+  global_font_size: 16px
+  font_family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif
+
+inject:
+  head:
+    - <link rel="stylesheet" href="/css/custom.css">
+
+CDN:
+  internal_provider: local
+  third_party_provider: local
+  version: true
